@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & News | Country Therapy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Hero Section - Text Below Image, Cropped Bottom */
+        .hero-section {
+            width: 100%;
+            margin: 0 0 4rem 0; /* No gap above, space below for text */
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 70vh; /* Tall hero */
+        }
+
+        .hero-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top; /* Crops bottom if needed - focuses on top/main part */
+            display: block;
+        }
+
+        .hero-text {
+            text-align: center;
+            padding: 3rem 2rem 4rem;
+            background: #f9f9f9;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.4rem;
+            color: #333;
+            margin: 0 0 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.4rem;
+            color: #555;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Articles Section - Refined for Better Look */
+        .articles-section {
+            padding: 2rem 0 5rem;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .articles-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-intro {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+        }
+
+        .articles-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            transition: all 0.4s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.18);
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 500px; /* Large, impactful preview */
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .article-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .article-content {
+            padding: 3rem 2.5rem;
+            text-align: left;
+        }
+
+        .article-date {
+            font-size: 1.05rem;
+            color: #888;
+            margin-bottom: 0.8rem;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: #d4edda;
+            color: #155724;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .article-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: #333;
+            margin: 0 0 1.5rem;
+            line-height: 1.3;
+        }
+
+        .article-desc {
+            color: #555;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #28a745;
+            color: white;
+            padding: 1.1rem 2.4rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.15rem;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            background: #218838;
+            gap: 1.2rem;
+            transform: translateX(8px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-image-wrapper {
+                height: 50vh;
+            }
+
+            .hero-text h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+
+            .article-image img {
+                height: 300px;
+            }
+
+            .article-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .article-content h3 {
+                font-size: 2rem;
+            }
+
+            .articles-section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>0494 131 621</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>reception@countrytherapy.com.au</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <img src="assets/Logo.png" alt="Country Therapy Logo">
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="https://www.countrytherapy.com.au">Home</a></li>
+                    <li><a href="https://www.countrytherapy.com.au/blank-3">Services</a></li>
+                    <li><a href="https://www.countrytherapy.com.au/blank">Referrals</a></li>
+                    <li><a href="https://www.countrytherapy.com.au/blank-2">Our Team</a></li>
+                    <li><a href="https://www.countrytherapy.com.au/blank-4-1">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Image with Text Below -->
+    <section class="hero-section">
+        <div class="hero-image-wrapper">
+            <img src="assets/NewsHero.png" alt="Country Therapy News and Events">
+        </div>
+        <div class="hero-text">
+            <h1>Latest News & Success Stories</h1>
+            <p>Celebrating the journeys, achievements, and real impact of Country Therapy in our community.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="articles-section">
+            <h2>Featured Success Story</h2>
+            <p class="section-intro">A heartfelt story of growth, confidence, and opportunity from one of our own.</p>
+
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="assets/articleImage.png" alt="Young person transitioning from school to workforce with occupational therapy support in Australia">
+                    </div>
+                    <div class="article-content">
+                        <time datetime="2025-12-15" class="article-date">December 15, 2025</time>
+                        <span class="article-tag">Success Story</span>
+                        <h3>Finding His Place: How Country Therapy Helped Joshua Turn Support Into a Career</h3>
+                        <p class="article-desc">Stawell local Joshua Harvey first came to Country Therapy as a teenager seeking support. Through personalised therapy, he built confidence, skills, and direction. Now 19, Joshua is proudly transitioning from client to therapy support worker—proving that the right support can turn challenges into strengths and open doors to meaningful careers.</p>
+                        <a href="https://www.westvicnews.com.au/finding-his-place-how-country-therapy-helped-joshua-turn-support-into-a-career-2025-12-15" target="_blank" class="read-more-btn">
+                            Read the Full Story <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
