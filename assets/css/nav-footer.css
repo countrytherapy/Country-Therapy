@@ -377,10 +377,9 @@ footer {
 }
 
 .nav-links {
-  gap: 0.5rem;           /* tighter spacing */
+  gap: 0.5rem;           
   justify-content: flex-start;
-  flex-wrap: nowrap;     /* important */
-  overflow: hidden;      /* helps debugging */
+  flex-wrap: nowrap;    
 }
 
 /* Make links smaller on narrower screens */
