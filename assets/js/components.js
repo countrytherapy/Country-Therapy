@@ -12,5 +12,5 @@ async function loadComponent(id, path) {
   }
 }
 
-loadComponent('nav-root', '/assets/components/navbar.html');
-loadComponent('footer-root', '/assets/components/footer.html');
+loadComponent('nav-root', 'assets/components/navbar.html');
+loadComponent('footer-root', 'assets/components/footer.html');
