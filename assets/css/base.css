@@ -1,0 +1,180 @@
+/* =============================================================
+   base.css
+   Shared across every page — load this first on all pages.
+   Contains: tokens, reset, utilities, section primitives,
+             buttons, keyframes.
+   Nav, topbar and footer styles live in nav-footer.css.
+   ============================================================= */
+
+/* ── Design Tokens ───────────────────────────────────────────── */
+:root {
+  /* Palette */
+  --sage:         #6B8F71;
+  --sage-light:   #A8C5AC;
+  --sage-pale:    #EAF2EB;
+  --sage-dark:    #3D5C42;
+  --warm:         #C97B4B;
+  --warm-light:   #F2D5BB;
+  --warm-pale:    #FDF6F0;
+  --slate:        #2C3E35;
+  --slate-mid:    #4A5E53;
+  --off-white:    #F8F5F0;
+  --white:        #FFFFFF;
+  --text-body:    #3D4F45;
+  --text-muted:   #7A9183;
+
+  /* Layout */
+  --topbar-h:     40px;
+  --nav-h:        72px;
+
+  /* Typography */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* Border radius */
+  --r-sm:  8px;
+  --r-md:  18px;
+  --r-lg:  40px;
+  --r-xl:  60px;
+
+  /* Shadows */
+  --shadow:      0 8px 40px rgba(44, 62, 53, 0.10);
+  --shadow-btn:  0 4px 20px rgba(201, 123, 75, 0.35);
+}
+
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--off-white);
+  color: var(--text-body);
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+
+/* ── Layout Utility ──────────────────────────────────────────── */
+.container {
+  width: min(1200px, 92vw);
+  margin-inline: auto;
+}
+
+/* ── Scroll Reveal ───────────────────────────────────────────── */
+/* No JS needed — override keeps everything visible */
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ── Section Primitives ──────────────────────────────────────── */
+.sec-lbl {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.75rem;
+}
+.sec-lbl::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--sage);
+  border-radius: 2px;
+}
+.sec-lbl.center { justify-content: center; }
+.sec-lbl.center::before { display: none; }
+
+.sec-h {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.1;
+  color: var(--slate);
+}
+.sec-h em { font-style: italic; color: var(--warm); }
+
+.sec-p {
+  font-size: 0.97rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+/* ── Shared Buttons ──────────────────────────────────────────── */
+.btn-ghost {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--slate-mid);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--r-sm);
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  background: var(--sage-pale);
+  color: var(--sage);
+}
+
+.btn-primary {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--warm);
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-btn);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.btn-primary:hover {
+  background: #b56a3a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(201, 123, 75, 0.45);
+}
+
+/* ── Keyframes ───────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes floatA {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50%       { transform: translateY(-10px) rotate(1deg); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50%       { transform: translateY(-8px) rotate(-1deg); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.5); opacity: 0.6; }
+}
+@keyframes morphBlob {
+  0%   { border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%; }
+  100% { border-radius: 60% 40% 50% 60% / 40% 60% 40% 60%; }
+}
