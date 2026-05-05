@@ -371,7 +371,30 @@ footer {
   border-radius: 50px;
   padding: 0.2rem 0.75rem;
 }
+/* Better nav spacing + prevent overflow */
+.nav-inner {
+  gap: 1rem;
+}
 
+.nav-links {
+  gap: 0.5rem;           /* tighter spacing */
+  justify-content: flex-start;
+  flex-wrap: nowrap;     /* important */
+  overflow: hidden;      /* helps debugging */
+}
+
+/* Make links smaller on narrower screens */
+@media (max-width: 1100px) {
+  .nav-links > li > a,
+  .nav-more-btn {
+    padding: 0 0.65rem;
+    font-size: 0.82rem;
+  }
+  
+  .logo-word {
+    font-size: 1rem;
+  }
+}
 /* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .ft-g { grid-template-columns: 1fr 1fr; }
