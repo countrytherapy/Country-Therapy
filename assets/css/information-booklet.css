@@ -1,0 +1,367 @@
+/* =============================================================
+   booklets.css — Information Booklets page
+   Lives in assets/css/. Requires base.css + nav-footer.css.
+   ============================================================= */
+
+/* ── Hero ─────────────────────────────────────────────────────── */
+.bk-hero {
+  padding-top: calc(var(--topbar-h) + var(--nav-h) + 5rem);
+  padding-bottom: 5.5rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--off-white);
+  border-bottom: 1px solid rgba(107, 143, 113, 0.12);
+  text-align: center;
+}
+.bk-hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.bk-blob {
+  position: absolute;
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+}
+.bk-blob-1 {
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(107,143,113,0.15) 0%, transparent 70%);
+  top: -120px; right: -100px;
+  animation: morphBlob 14s ease-in-out infinite alternate;
+}
+.bk-blob-2 {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(74,144,196,0.1) 0%, transparent 70%);
+  bottom: -80px; left: -80px;
+  animation: morphBlob 10s 2s ease-in-out infinite alternate-reverse;
+}
+.bk-blob-3 {
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(232,93,122,0.08) 0%, transparent 70%);
+  top: 40%; left: 22%;
+}
+.bk-hero-inner { position: relative; z-index: 1; }
+
+.bk-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  line-height: 1.06;
+  color: var(--slate);
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.bk-h1 em { font-style: italic; color: var(--warm); }
+
+.bk-sub {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 56ch;
+  margin-inline: auto;
+  margin-bottom: 2rem;
+}
+
+/* Contact strip in hero */
+.bk-contact-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--slate-mid);
+  background: var(--white);
+  border: 1px solid rgba(107, 143, 113, 0.15);
+  border-radius: 50px;
+  padding: 0.5rem 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.bk-contact-strip a {
+  color: var(--sage-dark);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.bk-contact-strip a:hover { color: var(--sage); }
+
+/* ── Booklets Section ─────────────────────────────────────────── */
+.bk-section {
+  padding: 6rem 0 5rem;
+  background: var(--white);
+}
+.bk-container {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ── Booklet Card ─────────────────────────────────────────────── */
+.bk-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--off-white);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(107, 143, 113, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+  height: 100%;
+}
+.bk-card:hover {
+  box-shadow: 0 14px 48px rgba(44, 62, 53, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Alt — no longer used for layout, kept for compat */
+.bk-card--alt { }
+.bk-card--alt .bk-card-visual { order: unset; }
+.bk-card--alt .bk-card-body   { order: unset; }
+
+/* Visual — now sits at top of card */
+.bk-card-visual {
+  background: var(--abg, rgba(107,143,113,0.07));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2.5rem 2rem;
+  position: relative;
+  min-height: 200px;
+}
+
+/* Document icon */
+.bk-doc-icon {
+  width: 64px; height: 64px;
+  border-radius: var(--r-sm);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.bk-doc-icon svg { width: 32px; height: 32px; }
+
+/* Stacked page effect */
+.bk-doc-pages {
+  position: relative;
+  width: 80px;
+  height: 100px;
+}
+.bk-page {
+  position: absolute;
+  width: 72px;
+  height: 90px;
+  border-radius: 4px;
+  border: 1px solid rgba(107,143,113,0.12);
+}
+.bk-page-1 { bottom: 0; left: 50%; transform: translateX(-50%); }
+.bk-page-2 { bottom: 5px; left: 50%; transform: translateX(-44%) rotate(-3deg); }
+.bk-page-3 { bottom: 5px; left: 50%; transform: translateX(-56%) rotate(3deg); }
+
+/* Accent bar */
+.bk-card-visual::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  width: 100%;
+  background: var(--ac, var(--sage));
+}
+
+/* Body */
+.bk-card-body {
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+.bk-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.bk-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  padding: 0.22rem 0.75rem;
+}
+.bk-format {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.bk-format::before {
+  content: '';
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(107,143,113,0.3);
+}
+
+.bk-card-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--slate);
+  line-height: 1.15;
+}
+.bk-card-desc {
+  font-size: 0.87rem;
+  font-weight: 300;
+  line-height: 1.72;
+  color: var(--text-muted);
+}
+
+.bk-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.bk-highlights li {
+  font-size: 0.83rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.5;
+}
+.bk-highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.52em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--ac, var(--sage));
+}
+
+/* Download button */
+.bk-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--dc, var(--sage-dark));
+  background: var(--dbg, var(--sage-pale));
+  border: 1.5px solid transparent;
+  border-radius: 50px;
+  padding: 0.65rem 1.4rem;
+  text-decoration: none;
+  width: fit-content;
+  margin-top: 0.5rem;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.bk-download-btn:hover {
+  box-shadow: 0 4px 20px rgba(44,62,53,0.12);
+  transform: translateY(-1px);
+  filter: brightness(0.95);
+}
+
+/* ── Contact Section ──────────────────────────────────────────── */
+.bk-contact-section {
+  padding: 5rem 0;
+  background: var(--sage-pale);
+  border-top: 1px solid rgba(107, 143, 113, 0.12);
+  border-bottom: 1px solid rgba(107, 143, 113, 0.12);
+}
+.bk-contact-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+.bk-contact-dots {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 1.5rem;
+}
+.bk-contact-dots span {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  opacity: 0.65;
+  display: block;
+}
+.bk-contact-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.bk-outline-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--slate-mid);
+  background: var(--white);
+  border: 1.5px solid rgba(107, 143, 113, 0.25);
+  border-radius: 50px;
+  padding: 0.65rem 1.4rem;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.bk-outline-btn:hover {
+  border-color: var(--sage);
+  box-shadow: 0 2px 12px rgba(107,143,113,0.15);
+}
+
+/* ── CTA (shared) ─────────────────────────────────────────────── */
+.cta-sec {
+  padding: 7rem 0;
+  background: linear-gradient(135deg, var(--warm) 0%, #a85e30 100%);
+  position: relative; overflow: hidden;
+}
+.cta-sec::before {
+  content: ''; position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cta-inner { position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+.cta-inner .sec-h    { color: var(--white); }
+.cta-inner .sec-h em { color: rgba(255,255,255,0.75); }
+.cta-inner > p { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.8); max-width: 46ch; line-height: 1.7; }
+.cta-dots { display: flex; align-items: center; gap: 8px; }
+.cta-dot  { width: 10px; height: 10px; border-radius: 50%; opacity: 0.75; }
+.cta-acts { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.btn-cw {
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+  color: var(--warm); background: var(--white); border: none; cursor: pointer;
+  padding: 0.9rem 2.2rem; border-radius: 50px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+.btn-cw:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+.btn-co {
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
+  color: var(--white); background: transparent;
+  border: 2px solid rgba(255,255,255,0.45); cursor: pointer;
+  padding: 0.88rem 2rem; border-radius: 50px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-co:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .bk-container { grid-template-columns: 1fr; max-width: 600px; }
+}
+@media (max-width: 640px) {
+  .bk-card-visual { min-height: 160px; padding: 1.5rem; }
+  .bk-card-body { padding: 1.5rem; }
+  .bk-contact-btns { flex-direction: column; align-items: center; }
+  .cta-acts { flex-direction: column; }
+}
