@@ -13,20 +13,116 @@
   position: relative;
   overflow: hidden;
 }
+
 .hero::before {
   content: '';
-  position: absolute; inset: 0;
-  pointer-events: none; z-index: 0;
+  position: absolute; 
+  inset: 0;
+  pointer-events: none; 
+  z-index: 0;
   background:
     radial-gradient(ellipse 70% 60% at 72% 40%, rgba(168,197,172,0.28) 0%, transparent 70%),
     radial-gradient(ellipse 40% 50% at 10% 80%, rgba(242,213,187,0.30) 0%, transparent 60%);
 }
-.hero > * { position: relative; z-index: 1; }
 
-.hero-copy {
-  padding: 5rem 3rem 5rem 0;
-  display: flex; flex-direction: column; gap: 1.6rem;
+/* Container for proper alignment with navbar */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+  gap: 2rem;
 }
+
+/* LEFT - Text Content (aligned with logo) */
+.hero-copy {
+  padding: 5rem 2rem 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  max-width: 580px;
+}
+
+/* RIGHT - Visual / Image */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem 4rem 1rem;
+}
+
+/* Image */
+.hero-img-main {
+  width: clamp(300px, 45vw, 520px);
+  aspect-ratio: 4 / 5;
+  border-radius: 32px 32px 32px 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(44,62,53,0.18);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Blobs - Solid Green + Warm accent */
+.hero-blob {
+  position: absolute;
+  z-index: -1;
+}
+
+.hero-blob--sage {
+  width: 90%;
+  height: 90%;
+  background: #6B8F71;
+  border-radius: 45% 55% 48% 52%;
+  top: 8%;
+  right: -12%;
+  box-shadow: 0 20px 70px rgba(107,143,113,0.4);
+  animation: morphBlob 14s ease-in-out infinite alternate;
+}
+
+.hero-blob--warm {
+  width: 52%;
+  height: 52%;
+  background: linear-gradient(135deg, rgba(201,123,75,0.28), rgba(232,93,122,0.22));
+  border-radius: 60% 40% 55% 45%;
+  bottom: 15%;
+  left: -8%;
+  animation: morphBlob 18s 4s ease-in-out infinite alternate-reverse;
+}
+
+/* Floating Cards */
+.fc {
+  position: absolute;
+  background: var(--white);
+  border-radius: var(--r-md);
+  box-shadow: 0 10px 35px rgba(44,62,53,0.13);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  z-index: 3;
+}
+
+.fc-ico { width: 44px; height: 44px; flex-shrink: 0; border-radius: var(--r-sm); display: grid; place-items: center; }
+.fc-ico svg { width: 22px; height: 22px; }
+.fc-info .lbl { font-size: 0.72rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.fc-info .val { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.1; color: var(--slate); }
+.fc-info .sub { font-size: 0.72rem; color: var(--text-muted); }
+.fc-exp { bottom: 22%; left: -5%; animation: floatA 5s ease-in-out infinite, fadeUp 0.8s 0.5s ease both; }
+.fc-exp .fc-ico { background: var(--sage-pale); }
+.fc-exp .fc-ico svg { stroke: var(--sage); fill: none; stroke-width: 2; }
+.fc-mob { top: 18%; right: -6%; animation: floatB 6s 1s ease-in-out infinite, fadeUp 0.8s 0.6s ease both; }
+.fc-mob .fc-ico { background: var(--warm-pale); }
+.fc-mob .fc-ico svg { stroke: var(--warm); fill: none; stroke-width: 2; }
+
+/* Badge */
 .hero-badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
   background: var(--sage-pale);
@@ -42,6 +138,8 @@
   background: var(--sage); border-radius: 50%;
   animation: pulse 2.4s ease-in-out infinite;
 }
+
+/* Typography */
 .hero-h1 {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 4.2vw, 3.8rem);
@@ -55,6 +153,8 @@
   color: var(--text-muted); max-width: 42ch;
   animation: fadeUp 0.6s 0.2s ease both;
 }
+
+/* Locations Pill */
 .loc-row {
   display: flex; flex-wrap: wrap; gap: 0.5rem;
   animation: fadeUp 0.6s 0.28s ease both;
@@ -67,6 +167,8 @@
   box-shadow: 0 2px 8px rgba(44,62,53,0.06);
 }
 .loc-pill svg { width: 12px; height: 12px; }
+
+/* Buttons */
 .hero-actions {
   display: flex; align-items: center; gap: 1rem;
   animation: fadeUp 0.6s 0.35s ease both;
@@ -88,6 +190,8 @@
   text-decoration: none; transition: color 0.2s, gap 0.2s;
 }
 .btn-hg:hover { color: var(--slate); gap: 0.75rem; }
+
+/* Trust Section */
 .hero-trust {
   display: flex; align-items: center; gap: 1.2rem;
   animation: fadeUp 0.6s 0.42s ease both;
@@ -106,79 +210,40 @@
 .trust-txt { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
 .trust-txt strong { color: var(--slate); font-weight: 600; }
 
-/* Hero visual */
-.hero-visual {
-  padding: 5rem 0 5rem 3rem;
-  display: flex; justify-content: center; align-items: center;
-  position: relative;
-}
-.hero-img-main {
-  width: clamp(280px, 40vw, 500px);
-  aspect-ratio: 4 / 5;
-  border-radius: var(--r-xl) var(--r-xl) var(--r-xl) var(--r-md);
-  overflow: hidden; position: relative;
-  box-shadow: var(--shadow), 0 0 0 1px rgba(107,143,113,0.1);
-  animation: scaleIn 0.8s 0.1s cubic-bezier(0.16,1,0.3,1) both;
-}
-.hero-img-main img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-
-/* Blobs */
-.hero-blob {
-  position: absolute;
-  aspect-ratio: 1;
-  border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
-  overflow: hidden;
-  z-index: -1;
-}
-/* Primary sage blob — nature photo */
-.hero-blob--sage {
-  width: 85%;
-  top: 3%; right: -5%;
-  animation: morphBlob 10s ease-in-out infinite alternate;
-  box-shadow: 0 12px 60px rgba(44,62,53,0.18);
-}
-.hero-blob--sage img {
-  width: 100%; height: 100%; object-fit: cover;
-  filter: saturate(0.75) brightness(0.7);
-}
-.hero-blob--sage::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(61,92,66,0.5) 0%, rgba(107,143,113,0.25) 100%);
-}
-/* Secondary warm/pink accent blob */
-.hero-blob--warm {
-  width: 45%;
-  bottom: 8%; left: -8%;
-  background: linear-gradient(135deg, rgba(201,123,75,0.22) 0%, rgba(232,93,122,0.15) 100%);
-  animation: morphBlob 12s 2s ease-in-out infinite alternate-reverse;
-  box-shadow: 0 8px 40px rgba(201,123,75,0.12);
-}
-
-/* Floating cards */
-.fc {
-  position: absolute; background: var(--white);
-  border-radius: var(--r-md);
-  box-shadow: 0 8px 32px rgba(44,62,53,0.12);
-  padding: 1rem 1.25rem;
-  display: flex; align-items: center; gap: 0.85rem;
-  min-width: 170px;
-}
-.fc-ico { width: 44px; height: 44px; flex-shrink: 0; border-radius: var(--r-sm); display: grid; place-items: center; }
-.fc-ico svg { width: 22px; height: 22px; }
-.fc-info .lbl { font-size: 0.72rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
-.fc-info .val { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.1; color: var(--slate); }
-.fc-info .sub { font-size: 0.72rem; color: var(--text-muted); }
-.fc-exp { bottom: 18%; left: -8%; animation: floatA 5s ease-in-out infinite, fadeUp 0.8s 0.5s ease both; }
-.fc-exp .fc-ico { background: var(--sage-pale); }
-.fc-exp .fc-ico svg { stroke: var(--sage); fill: none; stroke-width: 2; }
-.fc-mob { top: 12%; right: -10%; animation: floatB 6s 1s ease-in-out infinite, fadeUp 0.8s 0.6s ease both; }
-.fc-mob .fc-ico { background: var(--warm-pale); }
-.fc-mob .fc-ico svg { stroke: var(--warm); fill: none; stroke-width: 2; }
-
 /* Wave */
-.hero-wave { position: absolute; bottom: 0; left: 0; right: 0; line-height: 0; z-index: 2; }
+.hero-wave { 
+  position: absolute; 
+  bottom: 0; 
+  left: 0; 
+  right: 0; 
+  line-height: 0; 
+  z-index: 2; 
+}
 .hero-wave svg { display: block; width: 100%; }
+
+/* ============================================= */
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-copy {
+    padding: 4rem 1.5rem 3rem;
+    text-align: center;
+    max-width: 100%;
+  }
+  .hero-visual {
+    padding: 2rem 1.5rem 5rem;
+    order: -1;
+  }
+  .hero-img-main {
+    width: clamp(260px, 80vw, 420px);
+  }
+}
 
 /* ── Stats Band ───────────────────────────────────────────────── */
 .stats { background: var(--slate); padding: 3.5rem 0; }
@@ -406,11 +471,16 @@
   .proc-g { grid-template-columns: repeat(2,1fr); }
   .why-us-g { grid-template-columns: 1fr; gap: 3rem; }
 }
-
+@media (max-width: 1200px) {
+  .hero-copy {
+    padding: 4rem 3rem 4rem 1.5rem;
+  }
+  .hero-visual {
+    padding: 4rem 1.5rem 4rem 2rem;
+  }
+}
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-copy  { padding: 3.5rem 0 2rem; }
-  .hero-visual { padding: 0 0 5rem; }
   .hero-img-main { width: clamp(240px, 80vw, 420px); }
   .fc-mob { right: 0; }
   .fc-exp { left: 0; }
