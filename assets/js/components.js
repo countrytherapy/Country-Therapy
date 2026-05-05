@@ -1,5 +1,20 @@
 (function() {
 
+  var rel = getRelativePathPrefix();
+
+  function getRelativePathPrefix() {
+    var path = window.location.pathname;
+    var repoBase = '/Country-Therapy';
+    if (path.indexOf(repoBase) === 0) {
+      path = path.slice(repoBase.length);
+    }
+    path = path.replace(/^\/|\/$/g, '');
+    var parts = path.split('/').filter(Boolean);
+    if (parts.length && parts[parts.length - 1].indexOf('.') !== -1) {
+      parts.pop();
+    }
+    return parts.length ? '../'.repeat(parts.length) : '';
+  }
   var NAVBAR = `
 <div class="topbar" id="topbar">
   <div class="tb-inner">
@@ -18,7 +33,7 @@
 </div>
 <nav id="nav" aria-label="Main navigation">
   <div class="container nav-inner">
-    <a href="/" class="logo" aria-label="Country Therapy home">
+    <a href="${rel}" class="logo" aria-label="Country Therapy home">
       <div class="logo-mark-people" aria-hidden="true">
         <div class="lp-person p1"><div class="lp-head"></div><div class="lp-body"></div></div>
         <div class="lp-person p2"><div class="lp-head"></div><div class="lp-body"></div></div>
@@ -28,28 +43,28 @@
       <span class="logo-word">Country Therapy</span>
     </a>
     <ul class="nav-links" role="list">
-      <li><a href="/services/">Services</a></li>
-      <li><a href="/locations/">Locations</a></li>
-      <li><a href="/referrals/">Referrals</a></li>
-      <li><a href="/information-booklets/">Information Booklets</a></li>
-      <li><a href="/our-team/">Our Team</a></li>
-      <li><a href="/news/">News</a></li>
-      <li><a href="/learning/">Learning</a></li>
+      <li><a href="${rel}services/">Services</a></li>
+      <li><a href="${rel}locations/">Locations</a></li>
+      <li><a href="${rel}referrals/">Referrals</a></li>
+      <li><a href="${rel}information-booklets/">Information Booklets</a></li>
+      <li><a href="${rel}our-team/">Our Team</a></li>
+      <li><a href="${rel}news/">News</a></li>
+      <li><a href="${rel}learning/">Learning</a></li>
       <li class="nav-more-wrap">
         <button class="nav-more-btn" aria-haspopup="true" aria-expanded="false">
           More
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="nav-dropdown" role="menu">
-          <a href="/community-commitment/" role="menuitem">Our Community Commitment</a>
-          <a href="/blog/" target="_blank" rel="noopener" role="menuitem">Blog</a>
-          <a href="/faqs/" role="menuitem">FAQs</a>
-          <a href="/work-with-us/" role="menuitem">Work With Us</a>
+          <a href="${rel}community-commitment/" role="menuitem">Our Community Commitment</a>
+          <a href="${rel}blog/" target="_blank" rel="noopener" role="menuitem">Blog</a>
+          <a href="${rel}faqs/" role="menuitem">FAQs</a>
+          <a href="${rel}work-with-us/" role="menuitem">Work With Us</a>
         </div>
       </li>
     </ul>
     <div class="nav-cta">
-      <a href="/contact/" class="btn-primary">Contact Us</a>
+      <a href="${rel}contact/" class="btn-primary">Contact Us</a>
     </div>
   </div>
 </nav>
@@ -60,7 +75,7 @@
   <div class="container">
     <div class="ft-g">
       <div>
-        <a href="/" class="ft-logo">
+        <a href="${rel}" class="ft-logo">
           <div class="logo-mark-people logo-mark-people--sm" aria-hidden="true">
             <div class="lp-person p1"><div class="lp-head"></div><div class="lp-body"></div></div>
             <div class="lp-person p2"><div class="lp-head"></div><div class="lp-body"></div></div>
@@ -84,21 +99,21 @@
       <div class="ft-col">
         <h5>Services</h5>
         <ul class="ft-links">
-          <li><a href="/services/">Medicare OT</a></li>
-          <li><a href="/services/">NDIS Services</a></li>
-          <li><a href="/services/">Private Aged Care</a></li>
-          <li><a href="/services/">Support at Home</a></li>
-          <li><a href="/services/">School Consultations</a></li>
-          <li><a href="/services/">Legal Assessments</a></li>
+          <li><a href="${rel}services/">Medicare OT</a></li>
+          <li><a href="${rel}services/">NDIS Services</a></li>
+          <li><a href="${rel}services/">Private Aged Care</a></li>
+          <li><a href="${rel}services/">Support at Home</a></li>
+          <li><a href="${rel}services/">School Consultations</a></li>
+          <li><a href="${rel}services/">Legal Assessments</a></li>
         </ul>
       </div>
       <div class="ft-col">
         <h5>Company</h5>
         <ul class="ft-links">
-          <li><a href="/our-team/">Our Team</a></li>
-          <li><a href="/referrals/">Referrals</a></li>
-          <li><a href="/information-booklets/">Information Booklets</a></li>
-          <li><a href="/news/">News</a></li>
+          <li><a href="${rel}our-team/">Our Team</a></li>
+          <li><a href="${rel}referrals/">Referrals</a></li>
+          <li><a href="${rel}information-booklets/">Information Booklets</a></li>
+          <li><a href="${rel}news/">News</a></li>
           <li><a href="https://countrytherapy.github.io/Country-Therapy/" target="_blank" rel="noopener">Learning</a></li>
           <li><a href="https://countrytherapy.github.io/Community-Commitment/" target="_blank" rel="noopener">Community Commitment</a></li>
         </ul>
@@ -106,11 +121,11 @@
       <div class="ft-col">
         <h5>Locations</h5>
         <ul class="ft-links">
-          <li><a href="/locations/ararat/">Ararat</a></li>
-          <li><a href="/locations/stawell/">Stawell</a></li>
-          <li><a href="/locations/horsham/">Horsham</a></li>
-          <li><a href="/locations/ballarat/">Bacchus Marsh</a></li>
-          <li><a href="/locations/melton/">Melton</a></li>
+          <li><a href="${rel}locations/ararat/">Ararat</a></li>
+          <li><a href="${rel}locations/stawell/">Stawell</a></li>
+          <li><a href="${rel}locations/horsham/">Horsham</a></li>
+          <li><a href="${rel}locations/ballarat/">Bacchus Marsh</a></li>
+          <li><a href="${rel}locations/melton/">Melton</a></li>
         </ul>
       </div>
     </div>
