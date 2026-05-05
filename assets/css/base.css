@@ -55,7 +55,7 @@ body {
   font-family: var(--font-body);
   background: var(--off-white);
   color: var(--text-body);
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 img { display: block; max-width: 100%; }
