@@ -95,10 +95,9 @@
       <div class="ft-col">
         <h5>Company</h5>
         <ul class="ft-links">
-          <li><a href="/">About Us</a></li>
           <li><a href="/our-team/">Our Team</a></li>
           <li><a href="/referrals/">Referrals</a></li>
-          <li><a href="/information-booklets/">Info Booklets</a></li>
+          <li><a href="/information-booklets/">Information Booklets</a></li>
           <li><a href="/news/">News</a></li>
           <li><a href="https://countrytherapy.github.io/Country-Therapy/" target="_blank" rel="noopener">Learning</a></li>
           <li><a href="https://countrytherapy.github.io/Community-Commitment/" target="_blank" rel="noopener">Community Commitment</a></li>
