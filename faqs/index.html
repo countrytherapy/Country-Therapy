@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frequently Asked Questions – Country Therapy | OT Services Victoria</title>
+  <link rel="icon" type="image/png" href="../assets/images/Logo.png">
   <meta name="description" content="Answers to common questions about Country Therapy's occupational therapy services — NDIS, Medicare, aged care, paediatrics, referrals and more." />
   <link rel="canonical" href="https://www.countrytherapy.com.au/faqs/" />
   <script type="application/ld+json">
@@ -54,23 +55,24 @@
   </div>
 </section>
 
+<!-- ══ QUICK NAV ══ -->
+<nav class="faq-quicknav">
+  <div class="faq-quicknav-inner">
+    <a href="#about-ot" class="faq-qn-link active">About OT</a>
+    <a href="#our-services" class="faq-qn-link">Our Services</a>
+    <a href="#ndis" class="faq-qn-link">NDIS</a>
+    <a href="#medicare" class="faq-qn-link">Medicare</a>
+    <a href="#aged-care" class="faq-qn-link">Aged Care</a>
+    <a href="#paediatrics" class="faq-qn-link">Paediatrics</a>
+    <a href="#referrals" class="faq-qn-link">Referrals</a>
+    <a href="#costs" class="faq-qn-link">Costs &amp; Fees</a>
+    <a href="#locations" class="faq-qn-link">Locations</a>
+  </div>
+</nav>
+
 <!-- ══ FAQ CONTENT ══ -->
 <section class="faq-section">
   <div class="container faq-layout">
-
-<nav class="faq-quicknav">
-  <div class="faq-quicknav-inner">
-    <a href="#" class="faq-qn-link active">NDIS</a>
-    <a href="#" class="faq-qn-link">Medicare</a>
-    <a href="#" class="faq-qn-link">Aged Care</a>
-    <a href="#" class="faq-qn-link">DFFH</a>
-    <a href="#" class="faq-qn-link">Support at Home</a>
-    <a href="#" class="faq-qn-link">Schools</a>
-    <a href="#" class="faq-qn-link">Private</a>
-    <a href="#" class="faq-qn-link">Legal</a>
-    <a href="#" class="faq-qn-link">Paediatrics</a>
-  </div>
-</nav>
 
     <!-- FAQ groups -->
     <div class="faq-content">
@@ -405,15 +407,15 @@
     });
   });
 
-  // Sidebar active state on scroll
+  // Quicknav active state on scroll
   var groups = document.querySelectorAll('.faq-group[id]');
-  var navLinks = document.querySelectorAll('.faq-nav-link');
+  var navLinks = document.querySelectorAll('.faq-qn-link');
   window.addEventListener('scroll', function() {
     var pos = window.scrollY + 160;
     groups.forEach(function(g) {
       if (g.offsetTop <= pos && g.offsetTop + g.offsetHeight > pos) {
         navLinks.forEach(function(l) { l.classList.remove('active'); });
-        var a = document.querySelector('.faq-nav-link[href="#' + g.id + '"]');
+        var a = document.querySelector('.faq-qn-link[href="#' + g.id + '"]');
         if (a) a.classList.add('active');
       }
     });
