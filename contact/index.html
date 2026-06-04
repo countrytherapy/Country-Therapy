@@ -86,9 +86,9 @@
         <p>Fill in the form below and our team will be in touch shortly.</p>
       </div>
 
-      <form class="ct-form" action="https://formbold.com/s/YOUR_FORM_ID" method="POST" id="ctForm">
+      <form class="ct-form" action="https://formbold.com/s/oWrgV" method="POST" enctype="multipart/form-data" id="ctForm">
         <input type="text" name="_gotcha" style="display:none" />
-        <input type="hidden" name="subject" value="New Enquiry – Country Therapy Website" />
+        <input type="hidden" name="subject" value="New Enquiry from Country Therapy Website" />
 
         <!-- Name + Email -->
         <div class="ct-form-row">
@@ -176,14 +176,14 @@
         <!-- Message -->
         <div class="ct-field">
           <label for="ct-message">Your Message *</label>
-          <textarea id="ct-message" name="message" rows="5" placeholder="Tell us a little about what you're looking for — the more detail you can share, the better we can help." required></textarea>
+          <textarea id="ct-message" name="message" rows="5" placeholder="Tell us a little about what you're looking for. Please avoid sharing highly sensitive medical information in this form." required></textarea>
         </div>
 
         <!-- NDIS plan upload (optional) -->
         <div class="ct-field ct-field--file">
           <label for="ct-file">
             Attach a document (optional)
-            <span class="ct-field-hint">NDIS plan, referral letter, or relevant document — PDF, Word or image</span>
+            <span class="ct-field-hint">PDF, Word or image only. Please only upload documents you are authorised to share</span>
           </label>
           <input type="file" id="ct-file" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
         </div>
@@ -328,8 +328,8 @@
 <script src="../assets/js/components.js"></script>
 
 <script>
-  /* Basic form UX — show success state on submit */
-  document.getElementById('ctForm').addEventListener('submit', function(e) {
+  /* Basic form UX: prevent double submits while Formbold processes the message */
+  document.getElementById('ctForm').addEventListener('submit', function() {
     var btn = this.querySelector('.ct-submit');
     btn.textContent = 'Sending…';
     btn.disabled = true;
