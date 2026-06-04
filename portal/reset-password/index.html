@@ -1,18 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password – Staff Dashboard – Country Therapy</title>
-    <link rel="icon" type="image/png" href="../../assets/images/Logo.png">
-    <meta name="robots" content="noindex, nofollow" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/base.css" />
-    <link rel="stylesheet" href="../../assets/css/dashboard.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Set New Password – Country Therapy</title>
+  <link rel="icon" type="image/png" href="../assets/images/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <link rel="stylesheet" href="../assets/css/nav-footer.css" />
+  <link rel="stylesheet" href="../../assets/css/portal/auth.css" />
 </head>
 <body>
-    <h1>Reset Password</h1>
+
+<div id="nav-root"></div>
+
+<section class="auth-section">
+  <div class="auth-bg" aria-hidden="true">
+    <div class="auth-blob auth-blob-1"></div>
+    <div class="auth-blob auth-blob-2"></div>
+    <div class="auth-blob auth-blob-3"></div>
+  </div>
+
+  <div class="auth-card">
+    <div class="auth-logo">
+      <img src="../assets/images/Logo.png" alt="Country Therapy" />
+    </div>
+    <div class="auth-dots" aria-hidden="true">
+      <span style="background:#4A90C4"></span>
+      <span style="background:#F5C842"></span>
+      <span style="background:#E85D7A"></span>
+      <span style="background:#6B8F71"></span>
+    </div>
+    <h1>Set New <em>Password</em></h1>
+    <p>Enter and confirm your new password below.</p>
+
+    <div id="message" class="auth-message"></div>
+
+    <form id="update-password-form" class="auth-form">
+      <div class="auth-field">
+        <label for="password">New Password</label>
+        <input type="password" id="password" placeholder="••••••••" required minlength="8" autocomplete="new-password" />
+      </div>
+      <div class="auth-field">
+        <label for="passwordConfirm">Confirm New Password</label>
+        <input type="password" id="passwordConfirm" placeholder="••••••••" required autocomplete="new-password" />
+      </div>
+      <button type="submit" class="auth-submit">
+        Update Password
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </button>
+    </form>
+
+    <div class="auth-links">
+      <p><a href="login.html">Back to Login</a></p>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<script src="../assets/js/components.js"></script>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+  const supabaseUrl     = 'https://dlvpvlglgcrhhctkxhvl.supabase.co';
+  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRsdnB2bGdsZ2NyaGhjdGt4aHZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMzI3NjQsImV4cCI6MjA4ODYwODc2NH0.JzGbL8mRspWwzKYfthS9eWuZv8HTb7I0AFBPvQ1Ixqw';
+
+  const supabase  = createClient(supabaseUrl, supabaseAnonKey);
+  const messageEl = document.getElementById('message');
+  const form      = document.getElementById('update-password-form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    messageEl.textContent = '';
+    messageEl.className = 'auth-message';
+
+    const password        = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
+
+    if (password !== passwordConfirm) {
+      messageEl.textContent = 'Passwords do not match.';
+      messageEl.className = 'auth-message auth-message--error';
+      return;
+    }
+    if (password.length < 8) {
+      messageEl.textContent = 'Password must be at least 8 characters long.';
+      messageEl.className = 'auth-message auth-message--error';
+      return;
+    }
+
+    const submitBtn = form.querySelector('button');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Updating…';
+
+    try {
+      const { error } = await supabase.auth.updateUser({ password: password });
+      if (error) throw error;
+
+      messageEl.textContent = 'Password updated successfully! Redirecting to login…';
+      messageEl.className = 'auth-message auth-message--success';
+
+      await supabase.auth.signOut();
+
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 2500);
+    } catch (err) {
+      messageEl.textContent = err.message || 'Failed to update password. The link may have expired.';
+      messageEl.className = 'auth-message auth-message--error';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Update Password <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>';
+    }
+  });
+</script>
 </body>
 </html>

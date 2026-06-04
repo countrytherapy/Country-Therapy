@@ -60,6 +60,7 @@
           <a href="${rel}blog/" target="_blank" rel="noopener" role="menuitem">Blog</a>
           <a href="${rel}faqs/" role="menuitem">FAQs</a>
           <a href="${rel}work-with-us/" role="menuitem">Work With Us</a>
+          <a href="${rel}portal/login/" role="menuitem">Staff Portal</a>
         </div>
       </li>
     </ul>

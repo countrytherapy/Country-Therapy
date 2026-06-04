@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Log In – Country Therapy</title>
+  <title>Create Account – Country Therapy</title>
   <link rel="icon" type="image/png" href="../../assets/images/Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,29 +33,36 @@
       <span style="background:#E85D7A"></span>
       <span style="background:#6B8F71"></span>
     </div>
-    <h1>Welcome <em>Back</em></h1>
-    <p>Log in to access your exclusive occupational therapy learning resources.</p>
+    <h1>Create <em>Account</em></h1>
+    <p>Join our community of educators and professionals for exclusive OT resources.</p>
 
     <div id="message" class="auth-message"></div>
 
-    <form id="login-form" class="auth-form">
+    <form id="signup-form" class="auth-form">
+      <div class="auth-field">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="Jane Smith" required autocomplete="name" />
+      </div>
       <div class="auth-field">
         <label for="email">Email Address</label>
         <input type="email" id="email" placeholder="email@example.com" required autocomplete="email" />
       </div>
       <div class="auth-field">
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password" />
+        <input type="password" id="password" placeholder="••••••••" required minlength="8" autocomplete="new-password" />
+      </div>
+      <div class="auth-field">
+        <label for="passwordConfirm">Confirm Password</label>
+        <input type="password" id="passwordConfirm" placeholder="••••••••" required autocomplete="new-password" />
       </div>
       <button type="submit" class="auth-submit">
-        Log In
+        Create Account
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </button>
     </form>
 
     <div class="auth-links">
-      <p><a href="forgot-password.html">Forgot your password?</a></p>
-      <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+      <p>Already have an account? <a href="login.html">Log in here</a></p>
     </div>
   </div>
 </section>
@@ -71,42 +78,58 @@
 
   const supabase  = createClient(supabaseUrl, supabaseAnonKey);
   const messageEl = document.getElementById('message');
-  const form      = document.getElementById('login-form');
+  const form      = document.getElementById('signup-form');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     messageEl.textContent = '';
     messageEl.className = 'auth-message';
 
-    const email    = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
+    const fullName        = document.getElementById('fullName').value.trim();
+    const email           = document.getElementById('email').value.trim();
+    const password        = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
 
-    if (!email || !password) {
-      messageEl.textContent = 'Please enter both email and password.';
+    if (!fullName || !email || !password || !passwordConfirm) {
+      messageEl.textContent = 'Please fill in all fields.';
+      messageEl.className = 'auth-message auth-message--error';
+      return;
+    }
+    if (password !== passwordConfirm) {
+      messageEl.textContent = 'Passwords do not match.';
+      messageEl.className = 'auth-message auth-message--error';
+      return;
+    }
+    if (password.length < 8) {
+      messageEl.textContent = 'Password must be at least 8 characters long.';
       messageEl.className = 'auth-message auth-message--error';
       return;
     }
 
     const submitBtn = form.querySelector('button');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Logging in…';
+    submitBtn.textContent = 'Creating account…';
 
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { full_name: fullName },
+          emailRedirectTo: window.location.origin + '/auth/login.html'
+        }
+      });
       if (error) throw error;
 
-      messageEl.textContent = 'Login successful! Redirecting…';
+      messageEl.textContent = 'Account created! Please check your email to confirm.';
       messageEl.className = 'auth-message auth-message--success';
-
-      setTimeout(() => {
-        window.location.href = '../dashboard/index.html';
-      }, 2000);
+      form.reset();
     } catch (error) {
-      messageEl.textContent = error.message || 'Invalid login credentials. Please try again.';
+      messageEl.textContent = error.message || 'Unable to create account. Please try again.';
       messageEl.className = 'auth-message auth-message--error';
     } finally {
       submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Log In <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+      submitBtn.innerHTML = 'Create Account <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
     }
   });
 </script>
