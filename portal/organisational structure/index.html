@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organisational Structure – Staff Dashboard – Country Therapy</title>
+  <link rel="icon" type="image/png" href="../../assets/images/Logo.png">
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/base.css" />
+  <link rel="stylesheet" href="../../assets/css/dashboard.css" />
+  <link rel="stylesheet" href="../../assets/css/dashboard-org.css" />
+</head>
+<body>
+<div class="db-shell">
+  <div id="db-sidebar-root" data-active="org" data-title="Organisational Structure"></div>
+  <main class="db-main">
+    <div id="db-topbar-slot"></div>
+    <div class="db-content">
+      <div class="db-page-header">
+        <h1>Organisational <em>Structure</em></h1>
+        <p>View the Country Therapy team hierarchy, leadership and reporting lines across the organisation.</p>
+      </div>
+
+      <div class="db-org-chart">
+        <!-- Tier 1: Leadership -->
+        <div class="db-org-tier db-org-tier--lead">
+          <div class="db-org-person">
+            <div class="db-org-avatar">CT</div>
+            <h3>Company Director</h3>
+            <p>Founder &amp; Managing Director</p>
+            <span class="db-org-role-tag" style="background:rgba(201,123,75,0.12);color:#a85e30">Leadership</span>
+          </div>
+        </div>
+
+        <!-- Tier 2: Management -->
+        <div class="db-org-tier db-org-tier--managers">
+          <div class="db-org-person">
+            <div class="db-org-avatar">CM</div>
+            <h3>Clinical Manager</h3>
+            <p>Clinical oversight, supervision &amp; quality</p>
+            <span class="db-org-role-tag" style="background:rgba(74,144,196,0.12);color:#185FA5">Management</span>
+          </div>
+          <div class="db-org-person">
+            <div class="db-org-avatar">OM</div>
+            <h3>Operations Manager</h3>
+            <p>Admin, scheduling &amp; business ops</p>
+            <span class="db-org-role-tag" style="background:rgba(74,144,196,0.12);color:#185FA5">Management</span>
+          </div>
+        </div>
+
+        <!-- Tier 3: Clinical -->
+        <div class="db-org-tier">
+          <div class="db-org-person">
+            <div class="db-org-avatar">OT</div>
+            <h3>Senior OTs</h3>
+            <p>Senior clinicians, mentors &amp; regional leads</p>
+            <span class="db-org-role-tag" style="background:rgba(107,143,113,0.1);color:#3D5C42">Clinical</span>
+          </div>
+          <div class="db-org-person">
+            <div class="db-org-avatar">OT</div>
+            <h3>Occupational Therapists</h3>
+            <p>Core clinical team delivering OT services</p>
+            <span class="db-org-role-tag" style="background:rgba(107,143,113,0.1);color:#3D5C42">Clinical</span>
+          </div>
+          <div class="db-org-person">
+            <div class="db-org-avatar">AH</div>
+            <h3>Allied Health Assistants</h3>
+            <p>Support OTs with therapy delivery</p>
+            <span class="db-org-role-tag" style="background:rgba(232,93,122,0.12);color:#b8284d">Support</span>
+          </div>
+        </div>
+
+        <!-- Tier 4: Admin -->
+        <div class="db-org-tier">
+          <div class="db-org-person">
+            <div class="db-org-avatar">AD</div>
+            <h3>Admin &amp; Reception</h3>
+            <p>Practice support, scheduling &amp; client comms</p>
+            <span class="db-org-role-tag" style="background:rgba(245,200,66,0.12);color:#8a6b00">Admin</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="db-org-note">
+        <strong>Note:</strong> This is a general overview. For the full organisational chart with individual names and reporting lines, please refer to the shared drive document or contact your manager.
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../assets/js/dashboard-sidebar.js"></script>
+</body>
+</html>

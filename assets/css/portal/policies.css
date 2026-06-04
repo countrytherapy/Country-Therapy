@@ -1,0 +1,155 @@
+/* =============================================================
+   dashboard-policies.css — Policies & Procedures page
+   ============================================================= */
+
+/* Search bar */
+.db-policy-search {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--white);
+  border: 1px solid rgba(107,143,113,0.15);
+  border-radius: 50px;
+  padding: 0.65rem 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 480px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.db-policy-search:focus-within {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(107,143,113,0.1);
+}
+.db-policy-search svg { width: 20px; height: 20px; color: var(--text-muted); flex-shrink: 0; }
+.db-policy-search input {
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--slate);
+  background: transparent;
+  width: 100%;
+}
+.db-policy-search input::placeholder { color: var(--text-muted); }
+
+/* Category filters */
+.db-policy-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.db-policy-filter {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--white);
+  border: 1px solid rgba(107,143,113,0.12);
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.db-policy-filter:hover,
+.db-policy-filter.active {
+  color: var(--sage-dark);
+  background: var(--sage-pale);
+  border-color: var(--sage-light);
+}
+
+/* Policy list */
+.db-policy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.db-policy-item {
+  background: var(--white);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(107,143,113,0.1);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+.db-policy-item:hover {
+  box-shadow: 0 6px 24px rgba(44,62,53,0.08);
+  transform: translateY(-1px);
+  border-color: rgba(107,143,113,0.2);
+}
+
+.db-policy-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.db-policy-icon svg { width: 22px; height: 22px; }
+
+.db-policy-info {
+  flex: 1;
+  min-width: 0;
+}
+.db-policy-info h3 {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--slate);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+.db-policy-info p {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.db-policy-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+.db-policy-cat {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  padding: 0.18rem 0.6rem;
+}
+.db-policy-date {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.db-policy-dl {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--sage-pale);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.db-policy-dl svg { width: 18px; height: 18px; color: var(--sage-dark); }
+.db-policy-item:hover .db-policy-dl {
+  background: var(--sage-light);
+}
+
+@media (max-width: 640px) {
+  .db-policy-item { flex-wrap: wrap; }
+  .db-policy-meta { flex-direction: row; width: 100%; justify-content: flex-start; margin-top: 0.5rem; }
+}

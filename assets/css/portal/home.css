@@ -1,0 +1,287 @@
+/* =============================================================
+   dashboard-home.css — Dashboard Home / Welcome page
+   ============================================================= */
+
+/* ── Welcome Banner ───────────────────────────────────────────── */
+.db-welcome {
+  background: linear-gradient(135deg, var(--slate) 0%, #3D5C42 100%);
+  border-radius: var(--r-md);
+  padding: 2.75rem 3rem;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.db-welcome::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.db-welcome-inner {
+  position: relative;
+  z-index: 1;
+}
+.db-welcome h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.db-welcome h1 em {
+  font-style: italic;
+  color: var(--sage-light);
+}
+.db-welcome p {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.65;
+  max-width: 52ch;
+}
+.db-welcome-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 1rem;
+}
+.db-welcome-date svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Quick Links Grid ─────────────────────────────────────────── */
+.db-quick-section {
+  margin-bottom: 2.5rem;
+}
+.db-section-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--slate);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.db-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(107,143,113,0.12);
+  margin-left: 0.5rem;
+}
+
+.db-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.db-shortcut {
+  background: var(--white);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(107,143,113,0.1);
+  padding: 1.75rem 1.5rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.db-shortcut::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--sc, var(--sage));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.db-shortcut:hover {
+  box-shadow: 0 8px 32px rgba(44,62,53,0.1);
+  transform: translateY(-3px);
+}
+.db-shortcut:hover::after { opacity: 1; }
+
+.db-shortcut-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+}
+.db-shortcut-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.db-shortcut h3 {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--slate);
+  line-height: 1.3;
+}
+.db-shortcut p {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-top: -0.25rem;
+}
+.db-shortcut-arrow {
+  margin-top: auto;
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.3s;
+}
+.db-shortcut-arrow svg { width: 16px; height: 16px; }
+.db-shortcut:hover .db-shortcut-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Notices / Announcements ──────────────────────────────────── */
+.db-notices {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.db-notice {
+  background: var(--white);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(107,143,113,0.1);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+.db-notice-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+}
+.db-notice-body {
+  flex: 1;
+}
+.db-notice-body h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--slate);
+  margin-bottom: 0.25rem;
+}
+.db-notice-body p {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.db-notice-time {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  margin-top: 0.2rem;
+}
+
+/* Urgent notice */
+.db-notice--urgent {
+  border-left: 4px solid #E85D7A;
+  background: rgba(232,93,122,0.03);
+}
+
+/* ── Info Row ─────────────────────────────────────────────────── */
+.db-info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.db-info-card {
+  background: var(--white);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(107,143,113,0.1);
+  padding: 1.75rem;
+}
+.db-info-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--slate);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.db-info-card h3 svg {
+  width: 20px;
+  height: 20px;
+  color: var(--sage);
+}
+
+.db-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.db-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.db-contact-item svg {
+  width: 15px;
+  height: 15px;
+  color: var(--sage);
+  flex-shrink: 0;
+}
+.db-contact-item a {
+  color: var(--sage-dark);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.db-useful-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.db-useful-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--sage-dark);
+  text-decoration: none;
+  padding: 0.4rem 0;
+  transition: color 0.2s;
+}
+.db-useful-link:hover { color: var(--warm); }
+.db-useful-link svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.5;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .db-shortcuts { grid-template-columns: repeat(2, 1fr); }
+  .db-info-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .db-shortcuts { grid-template-columns: 1fr; }
+  .db-welcome { padding: 2rem 1.5rem; }
+  .db-welcome h1 { font-size: 1.6rem; }
+}

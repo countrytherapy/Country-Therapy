@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Policies & Procedures – Staff Dashboard – Country Therapy</title>
+  <link rel="icon" type="image/png" href="../../assets/images/Logo.png">
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/base.css" />
+  <link rel="stylesheet" href="../../assets/css/dashboard.css" />
+  <link rel="stylesheet" href="../../assets/css/dashboard-policies.css" />
+</head>
+<body>
+<div class="db-shell">
+  <div id="db-sidebar-root" data-active="policies" data-title="Policies & Procedures"></div>
+  <main class="db-main">
+    <div class="db-content">
+      <div class="db-page-header">
+        <h1>Policies &amp; <em>Procedures</em></h1>
+        <p>Access all company policies, clinical procedures, and operational guidelines. Documents are regularly updated — always refer to the latest version.</p>
+      </div>
+
+      <!-- Search -->
+      <div class="db-policy-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="policySearch" placeholder="Search policies and procedures..." />
+      </div>
+
+      <!-- Filters -->
+      <div class="db-policy-filters">
+        <button class="db-policy-filter active" data-cat="all">All</button>
+        <button class="db-policy-filter" data-cat="clinical">Clinical</button>
+        <button class="db-policy-filter" data-cat="operational">Operational</button>
+        <button class="db-policy-filter" data-cat="hr">HR & People</button>
+        <button class="db-policy-filter" data-cat="safety">WHS & Safety</button>
+        <button class="db-policy-filter" data-cat="compliance">Compliance</button>
+      </div>
+
+      <!-- Policy list -->
+      <div class="db-policy-list" id="policyList">
+
+        <a href="#" class="db-policy-item" data-cat="clinical">
+          <div class="db-policy-icon" style="background:rgba(107,143,113,0.1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6B8F71" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="db-policy-info">
+            <h3>Clinical Governance Framework</h3>
+            <p>Outlines clinical governance, supervision requirements and quality assurance processes.</p>
+          </div>
+          <div class="db-policy-meta">
+            <span class="db-policy-cat" style="background:rgba(107,143,113,0.1);color:#3D5C42">Clinical</span>
+            <span class="db-policy-date">Updated Jan 2025</span>
+          </div>
+          <div class="db-policy-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        </a>
+
+        <a href="#" class="db-policy-item" data-cat="clinical">
+          <div class="db-policy-icon" style="background:rgba(107,143,113,0.1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6B8F71" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="db-policy-info">
+            <h3>Telehealth Service Delivery Policy</h3>
+            <p>Guidelines for providing OT services via telehealth, including consent and documentation requirements.</p>
+          </div>
+          <div class="db-policy-meta">
+            <span class="db-policy-cat" style="background:rgba(107,143,113,0.1);color:#3D5C42">Clinical</span>
+            <span class="db-policy-date">Updated Mar 2025</span>
+          </div>
+          <div class="db-policy-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        </a>
+
+        <a href="#" class="db-policy-item" data-cat="clinical">
+          <div class="db-policy-icon" style="background:rgba(107,143,113,0.1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6B8F71" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="db-policy-info">
+            <h3>Client Documentation &amp; Progress Notes</h3>
+            <p>Standards for clinical note-taking, progress reports and documentation timelines.</p>
+          </div>
+          <div class="db-policy-meta">
+            <span class="db-policy-cat" style="background:rgba(107,143,113,0.1);color:#3D5C42">Clinical</span>
+            <span class="db-policy-date">Updated Feb 2025</span>
+          </div>
+          <div class="db-policy-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        </a>
+
+        <a href="#" class="db-policy-item" data-cat="operational">
+          <div class="db-policy-icon" style="background:rgba(74,144,196,0.1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4A90C4" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="db-policy-info">
+            <h3>Travel &amp; Mileage Reimbursement</h3>
+            <p>Guidelines for claiming travel expenses, mileage rates and submission processes.</p>
+          </div>
+          <div class="db-policy-meta">
+            <span class="db-policy-cat" style="background:rgba(74,144,196,0.12);color:#185FA5">Operational</span>
+            <span class="db-policy-date">Updated Dec 2024</span>
+          </div>
+          <div class="db-policy-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        </a>
+
+        <a href="#" class="db-policy-item" data-cat="hr">
+          <div class="db-policy-icon" style="background:rgba(232,93,122,0.1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E85D7A" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="db-policy-info">
+            <h3>Leave &amp; Flexible Work Arrangements</h3>
+            <p>Annual leave, personal leave, study leave and flexible scheduling policies.</p>
+          </div>
+          <div class="db-policy-meta">
+            <span class="db-policy-cat" style="background:rgba(232,93,122,0.12);color:#b8284d">HR & People</span>
+            <span class="db-policy-date">Updated Nov 2024</span>
+          </div>
+          <div class="db-policy-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        </a>
+
+        <a href="#" class="db-policy-item" data-cat="hr">
+          <div class="db-policy-icon" style="background:rgba(232,93,122,0.1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E85D7A" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="db-policy-info">
+            <h3>Code of Conduct</h3>
+            <p>Professional standards, ethical obligations and expected workplace behaviour.</p>
+          </div>
+          <div class="db-policy-meta">
+            <span class="db-policy-cat" style="background:rgba(232,93,122,0.12);color:#b8284d">HR & People</span>
+            <span class="db-policy-date">Updated Oct 2024</span>
+          </div>
+          <div class="db-policy-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        </a>
+
+        <a href="#" class="db-policy-item" data-cat="safety">
+          <div class="db-policy-icon" style="background:rgba(245,200,66,0.1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4A520" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="db-policy-info">
+            <h3>Work Health &amp; Safety Policy</h3>
+            <p>WHS obligations, risk assessment procedures and incident reporting requirements.</p>
+          </div>
+          <div class="db-policy-meta">
+            <span class="db-policy-cat" style="background:rgba(245,200,66,0.12);color:#8a6b00">WHS & Safety</span>
+            <span class="db-policy-date">Updated Jan 2025</span>
+          </div>
+          <div class="db-policy-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        </a>
+
+        <a href="#" class="db-policy-item" data-cat="safety">
+          <div class="db-policy-icon" style="background:rgba(245,200,66,0.1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4A520" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="db-policy-info">
+            <h3>Lone Worker &amp; Home Visit Safety</h3>
+            <p>Safety protocols for mobile OT staff conducting home and community visits.</p>
+          </div>
+          <div class="db-policy-meta">
+            <span class="db-policy-cat" style="background:rgba(245,200,66,0.12);color:#8a6b00">WHS & Safety</span>
+            <span class="db-policy-date">Updated Feb 2025</span>
+          </div>
+          <div class="db-policy-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        </a>
+
+        <a href="#" class="db-policy-item" data-cat="compliance">
+          <div class="db-policy-icon" style="background:rgba(107,143,113,0.1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6B8F71" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="db-policy-info">
+            <h3>Privacy &amp; Confidentiality Policy</h3>
+            <p>Obligations under the Privacy Act, client data handling and breach notification procedures.</p>
+          </div>
+          <div class="db-policy-meta">
+            <span class="db-policy-cat" style="background:rgba(107,143,113,0.1);color:#3D5C42">Compliance</span>
+            <span class="db-policy-date">Updated Dec 2024</span>
+          </div>
+          <div class="db-policy-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        </a>
+
+        <a href="#" class="db-policy-item" data-cat="compliance">
+          <div class="db-policy-icon" style="background:rgba(107,143,113,0.1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6B8F71" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="db-policy-info">
+            <h3>NDIS Practice Standards &amp; Compliance</h3>
+            <p>Requirements for NDIS registered providers including audit preparation and quality indicators.</p>
+          </div>
+          <div class="db-policy-meta">
+            <span class="db-policy-cat" style="background:rgba(107,143,113,0.1);color:#3D5C42">Compliance</span>
+            <span class="db-policy-date">Updated Mar 2025</span>
+          </div>
+          <div class="db-policy-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        </a>
+
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../assets/js/dashboard-sidebar.js"></script>
+<script>
+  // Filter policies
+  document.querySelectorAll('.db-policy-filter').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.db-policy-filter').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cat = btn.getAttribute('data-cat');
+      document.querySelectorAll('.db-policy-item').forEach(function(item) {
+        item.style.display = (cat === 'all' || item.getAttribute('data-cat') === cat) ? 'flex' : 'none';
+      });
+    });
+  });
+  // Search
+  document.getElementById('policySearch').addEventListener('input', function(e) {
+    var q = e.target.value.toLowerCase();
+    document.querySelectorAll('.db-policy-item').forEach(function(item) {
+      var text = item.textContent.toLowerCase();
+      item.style.display = text.includes(q) ? 'flex' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

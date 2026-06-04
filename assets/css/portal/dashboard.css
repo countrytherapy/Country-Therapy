@@ -1,0 +1,339 @@
+/* =============================================================
+   dashboard.css — Internal Staff Dashboard (shared layout)
+   Sidebar + main content area. Each page adds its own CSS.
+   ============================================================= */
+
+/* ── Dashboard Shell ──────────────────────────────────────────── */
+.db-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────── */
+.db-sidebar {
+  width: 272px;
+  background: var(--slate);
+  color: rgba(255,255,255,0.85);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Logo area */
+.db-sidebar-logo {
+  padding: 1.75rem 1.5rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--white);
+}
+.db-sidebar-logo img {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+}
+.db-sidebar-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+.db-sidebar-logo-text span:first-child {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--white);
+  line-height: 1.1;
+}
+.db-sidebar-logo-text span:last-child {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-top: 0.2rem;
+}
+
+/* Nav groups */
+.db-nav {
+  flex: 1;
+  padding: 1.25rem 0;
+}
+.db-nav-group {
+  margin-bottom: 0.75rem;
+}
+.db-nav-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  padding: 0 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Nav links */
+.db-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1.5rem;
+  font-size: 0.87rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: all 0.2s;
+  position: relative;
+  border-left: 3px solid transparent;
+}
+.db-nav-link svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.db-nav-link:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+  border-left-color: rgba(107,143,113,0.4);
+}
+.db-nav-link:hover svg { opacity: 1; }
+
+.db-nav-link.active {
+  color: var(--white);
+  font-weight: 500;
+  background: rgba(107,143,113,0.15);
+  border-left-color: var(--sage);
+}
+.db-nav-link.active svg { opacity: 1; }
+
+/* Coming soon badge */
+.db-badge-soon {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(245,200,66,0.9);
+  background: rgba(245,200,66,0.12);
+  border-radius: 50px;
+  padding: 0.15rem 0.5rem;
+  margin-left: auto;
+  line-height: 1.4;
+}
+
+/* Sidebar footer */
+.db-sidebar-footer {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.db-sidebar-footer a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.db-sidebar-footer a:hover { color: rgba(255,255,255,0.85); }
+.db-sidebar-footer svg {
+  width: 18px;
+  height: 18px;
+  opacity: 0.5;
+}
+
+/* ── Main Content ─────────────────────────────────────────────── */
+.db-main {
+  flex: 1;
+  margin-left: 272px;
+  background: #F5F3EE;
+  min-height: 100vh;
+}
+
+/* Top bar */
+.db-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245,243,238,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(107,143,113,0.1);
+  padding: 0 2.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.db-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.db-breadcrumb {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.db-breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.db-breadcrumb a:hover { color: var(--sage-dark); }
+.db-breadcrumb span { color: var(--slate); font-weight: 500; }
+
+.db-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.db-topbar-time {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Mobile toggle */
+.db-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--slate);
+  cursor: pointer;
+  padding: 0.25rem;
+}
+.db-mobile-toggle svg { width: 24px; height: 24px; }
+
+/* Content area */
+.db-content {
+  padding: 2.5rem;
+  max-width: 1200px;
+}
+
+/* ── Page Header ──────────────────────────────────────────────── */
+.db-page-header {
+  margin-bottom: 2.5rem;
+}
+.db-page-header h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--slate);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.db-page-header h1 em {
+  font-style: italic;
+  color: var(--warm);
+}
+.db-page-header p {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+/* ── Shared Card Styles ───────────────────────────────────────── */
+.db-card {
+  background: var(--white);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(107,143,113,0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.db-card:hover {
+  box-shadow: 0 8px 32px rgba(44,62,53,0.08);
+  transform: translateY(-2px);
+}
+.db-card-body {
+  padding: 1.75rem;
+}
+
+/* ── Coming Soon Placeholder ──────────────────────────────────── */
+.db-coming-soon {
+  text-align: center;
+  padding: 6rem 2rem;
+}
+.db-coming-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(245,200,66,0.1);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 1.5rem;
+}
+.db-coming-icon svg {
+  width: 36px;
+  height: 36px;
+  stroke: #D4A520;
+}
+.db-coming-soon h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--slate);
+  margin-bottom: 0.75rem;
+}
+.db-coming-soon h2 em {
+  font-style: italic;
+  color: var(--warm);
+}
+.db-coming-soon p {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 44ch;
+  margin-inline: auto;
+}
+.db-coming-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #8a6b00;
+  background: rgba(245,200,66,0.12);
+  border-radius: 50px;
+  padding: 0.35rem 0.85rem;
+  margin-top: 1.5rem;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .db-sidebar {
+    transform: translateX(-100%);
+  }
+  .db-sidebar.open {
+    transform: translateX(0);
+  }
+  .db-main {
+    margin-left: 0;
+  }
+  .db-mobile-toggle {
+    display: block;
+  }
+  .db-content {
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 640px) {
+  .db-topbar {
+    padding: 0 1.25rem;
+  }
+  .db-content {
+    padding: 1rem;
+  }
+  .db-page-header h1 {
+    font-size: 1.6rem;
+  }
+}
