@@ -25,7 +25,7 @@
         <span class="tb-dot" style="background:#E85D7A"></span>
         <span class="tb-dot" style="background:#6B8F71"></span>
       </div>
-      <a href="tel:+61494131621">0494 131 621</a>
+      <a href="tel:+610494758039">0494 758 039</a>
       <a href="mailto:reception@countrytherapy.com.au">reception@countrytherapy.com.au</a>
     </div>
     <span class="tb-ndis">NDIS Registered Provider</span>
@@ -86,9 +86,9 @@
         </a>
         <p class="ft-tag">Mobile, community-based occupational therapy across regional and metro Victoria.</p>
         <div class="ft-contacts">
-          <a href="tel:+61494131621">
+          <a href="tel:+610494758039">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87a16 16 0 0 0 5.97 5.97l.95-1.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 15z"/></svg>
-            0494 131 621
+            0494 758 039
           </a>
           <a href="mailto:reception@countrytherapy.com.au">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
