@@ -15,6 +15,7 @@
     }
     return parts.length ? '../'.repeat(parts.length) : '';
   }
+
   var NAVBAR = `
 <div class="topbar" id="topbar">
   <div class="tb-inner">
@@ -42,6 +43,7 @@
       </div>
       <span class="logo-word">Country Therapy</span>
     </a>
+
     <ul class="nav-links" role="list">
       <li><a href="${rel}services/">Services</a></li>
       <li><a href="${rel}locations/">Locations</a></li>
@@ -57,16 +59,44 @@
         </button>
         <div class="nav-dropdown" role="menu">
           <a href="${rel}community-commitment/" role="menuitem">Our Community Commitment</a>
-          <a href="${rel}blog/" target="_blank" rel="noopener" role="menuitem">Blog</a>
+          <a href="${rel}blog/" role="menuitem">Blog</a>
           <a href="${rel}faqs/" role="menuitem">FAQs</a>
           <a href="${rel}work-with-us/" role="menuitem">Work With Us</a>
           <a href="${rel}portal/login/" role="menuitem">Staff Portal</a>
         </div>
       </li>
     </ul>
+
     <div class="nav-cta">
       <a href="${rel}contact/" class="btn-primary">Contact Us</a>
     </div>
+
+    <!-- Hamburger — mobile only -->
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="nav-mobile" id="navMobileMenu" aria-hidden="true">
+    <ul class="nav-mobile-links">
+      <li><a href="${rel}services/">Services</a></li>
+      <li><a href="${rel}locations/">Locations</a></li>
+      <li><a href="${rel}referrals/">Referrals</a></li>
+      <li><a href="${rel}information-booklets/">Information Booklets</a></li>
+      <li><a href="${rel}our-team/">Our Team</a></li>
+      <li><a href="${rel}news/">News</a></li>
+      <li><a href="${rel}learning/">Learning</a></li>
+      <li class="nav-mobile-divider"></li>
+      <li><a href="${rel}community-commitment/">Community Commitment</a></li>
+      <li><a href="${rel}blog/">Blog</a></li>
+      <li><a href="${rel}faqs/">FAQs</a></li>
+      <li><a href="${rel}work-with-us/">Work With Us</a></li>
+      <li><a href="${rel}portal/login/">Staff Portal</a></li>
+      <li class="nav-mobile-cta">
+        <a href="${rel}contact/" class="btn-primary">Contact Us</a>
+      </li>
+    </ul>
   </div>
 </nav>
 `;
@@ -115,8 +145,8 @@
           <li><a href="${rel}referrals/">Referrals</a></li>
           <li><a href="${rel}information-booklets/">Information Booklets</a></li>
           <li><a href="${rel}news/">News</a></li>
-          <li><a href="https://countrytherapy.github.io/Country-Therapy/" target="_blank" rel="noopener">Learning</a></li>
-          <li><a href="https://countrytherapy.github.io/Community-Commitment/" target="_blank" rel="noopener">Community Commitment</a></li>
+          <li><a href="${rel}learning/">Learning</a></li>
+          <li><a href="${rel}community-commitment/">Community Commitment</a></li>
         </ul>
       </div>
       <div class="ft-col">
@@ -145,25 +175,85 @@
 `;
 
   document.addEventListener("DOMContentLoaded", function() {
-    var nav = document.getElementById("nav-root");
-    var foot = document.getElementById("footer-root");
+    var navRoot  = document.getElementById("nav-root");
+    var footRoot = document.getElementById("footer-root");
 
-    if (nav) nav.innerHTML = NAVBAR;
-    if (foot) foot.innerHTML = FOOTER;
+    if (navRoot)  navRoot.innerHTML  = NAVBAR;
+    if (footRoot) footRoot.innerHTML = FOOTER;
 
-    // Active nav link
-    document.querySelectorAll(".nav-links a").forEach(function(link) {
-      if (link.getAttribute("href") === window.location.pathname) {
+    // ── Active nav link ──────────────────────────────────────
+    document.querySelectorAll(".nav-links a, .nav-mobile-links a").forEach(function(link) {
+      var href = link.getAttribute("href");
+      if (href && window.location.pathname.endsWith(href.replace(/^\.\.\//, ''))) {
         link.setAttribute("aria-current", "page");
       }
     });
 
-    // Scroll shadow
-    var navEl = document.getElementById("nav");
-    if (navEl) {
-      window.addEventListener("scroll", function() {
-        navEl.classList.toggle("scrolled", window.scrollY > 10);
-      }, { passive: true });
+    // ── Scroll: shadow + topbar slide ───────────────────────
+    var navEl    = document.getElementById("nav");
+    var topbarEl = document.getElementById("topbar");
+    if (navEl && topbarEl) {
+      var tbH = topbarEl.offsetHeight;
+      var onScroll = function() {
+        var s = window.scrollY;
+        navEl.classList.toggle("scrolled", s > 10);
+        navEl.style.top = Math.max(0, tbH - s) + "px";
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    }
+
+    // ── Hamburger toggle ─────────────────────────────────────
+    var btn    = document.getElementById("navHamburger");
+    var drawer = document.getElementById("navMobileMenu");
+
+    if (btn && drawer) {
+      btn.addEventListener("click", function() {
+        var isOpen = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!isOpen));
+        btn.classList.toggle("is-open", !isOpen);
+        drawer.classList.toggle("is-open", !isOpen);
+        drawer.setAttribute("aria-hidden", String(isOpen));
+        // prevent body scroll when menu open
+        document.body.classList.toggle("nav-open", !isOpen);
+      });
+
+      // Close on backdrop click (outside nav)
+      document.addEventListener("click", function(e) {
+        if (drawer.classList.contains("is-open") && !navEl.contains(e.target)) {
+          btn.setAttribute("aria-expanded", "false");
+          btn.classList.remove("is-open");
+          drawer.classList.remove("is-open");
+          drawer.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("nav-open");
+        }
+      });
+
+      // Close on link click inside drawer
+      drawer.querySelectorAll("a").forEach(function(link) {
+        link.addEventListener("click", function() {
+          btn.setAttribute("aria-expanded", "false");
+          btn.classList.remove("is-open");
+          drawer.classList.remove("is-open");
+          drawer.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("nav-open");
+        });
+      });
+    }
+
+    // ── Desktop: More dropdown ───────────────────────────────
+    var moreWrap = document.querySelector(".nav-more-wrap");
+    var moreBtn  = document.querySelector(".nav-more-btn");
+    if (moreWrap && moreBtn) {
+      moreBtn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        var isOpen = moreWrap.classList.toggle("is-open");
+        moreBtn.setAttribute("aria-expanded", String(isOpen));
+      });
+      document.addEventListener("click", function() {
+        moreWrap.classList.remove("is-open");
+        moreBtn.setAttribute("aria-expanded", "false");
+      });
     }
   });
 
