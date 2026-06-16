@@ -167,6 +167,10 @@
         <span class="ft-colour-dot" style="background:#E85D7A"></span>
         <span class="ft-colour-dot" style="background:#6B8F71"></span>
       </div>
+    </div>
+  </div>
+</footer>
+`;
 
   document.addEventListener("DOMContentLoaded", function() {
     var navRoot  = document.getElementById("nav-root");
