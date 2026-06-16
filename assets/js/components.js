@@ -187,15 +187,13 @@
       }
     });
 
-    // ── Scroll: shadow + topbar slide ───────────────────────
+    // ── Scroll: shadow only ──────────────────────────────────
     var navEl    = document.getElementById("nav");
     var topbarEl = document.getElementById("topbar");
     if (navEl && topbarEl) {
-      var tbH = topbarEl.offsetHeight;
       var onScroll = function() {
         var s = window.scrollY;
         navEl.classList.toggle("scrolled", s > 10);
-        navEl.style.top = Math.max(0, tbH - s) + "px";
       };
       window.addEventListener("scroll", onScroll, { passive: true });
       onScroll();
