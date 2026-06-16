@@ -29,7 +29,6 @@
       <a href="tel:+610494758039">0494 758 039</a>
       <a href="mailto:reception@countrytherapy.com.au">reception@countrytherapy.com.au</a>
     </div>
-    <span class="tb-ndis">NDIS Registered Provider</span>
   </div>
 </div>
 <nav id="nav" aria-label="Main navigation">
@@ -168,11 +167,6 @@
         <span class="ft-colour-dot" style="background:#E85D7A"></span>
         <span class="ft-colour-dot" style="background:#6B8F71"></span>
       </div>
-      <span class="ft-ndis">NDIS Registered Provider</span>
-    </div>
-  </div>
-</footer>
-`;
 
   document.addEventListener("DOMContentLoaded", function() {
     var navRoot  = document.getElementById("nav-root");

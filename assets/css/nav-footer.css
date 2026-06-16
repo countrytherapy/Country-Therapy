@@ -59,21 +59,8 @@
 }
 .tb-contact a:hover { color: var(--white); }
 .tb-contact svg { width: 13px; height: 13px; flex-shrink: 0; }
-.tb-ndis {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50px;
-  padding: 0.2rem 0.8rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
 
-/* ── Logo mark — people illustration ────────────────────────── */
+/* ── Logo mark — people illustration —────────────────────────── */
 
 /* SINGLE merged block — no duplicate below */
 .logo-mark-people {
@@ -362,16 +349,6 @@ footer {
   border-radius: 50%;
   opacity: 0.5;
 }
-.ft-ndis {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
-  padding: 0.2rem 0.75rem;
-}
 
 /* ── Hamburger button ────────────────────────────────────────── */
 .nav-hamburger {
@@ -503,7 +480,6 @@ footer {
 }
 
 @media (max-width: 640px) {
-  .tb-ndis    { display: none; }
   .tb-contact a:last-child { display: none; } /* hide email on tiny screens */
   .ft-g { grid-template-columns: 1fr; }
 }
