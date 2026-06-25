@@ -29,10 +29,7 @@
       <a href="tel:+610494758039">0494 758 039</a>
       <a href="mailto:reception@countrytherapy.com.au">reception@countrytherapy.com.au</a>
     </div>
-<<<<<<< HEAD
-=======
-    <span class="tb-ndis">Works with NDIS participants</span>
->>>>>>> 35d448c (NDIS)
+
   </div>
 </div>
 <nav id="nav" aria-label="Main navigation">
