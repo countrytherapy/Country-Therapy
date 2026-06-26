@@ -1,124 +1,366 @@
-/* =============================================================
-   dashboard-org.css — Organisational Structure page
-   ============================================================= */
-
-.db-org-chart {
+/* ── Tab Nav ──────────────────────────────────────────────────── */
+.org-tabs {
   display: flex;
-  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 2px solid rgba(107,143,113,0.1);
+  padding-bottom: 0;
+}
+
+.org-tab {
+  display: inline-flex;
   align-items: center;
-  gap: 2rem;
-  padding: 2rem 0;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.75rem 1.1rem;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  border-radius: var(--r-sm) var(--r-sm) 0 0;
+  white-space: nowrap;
+}
+.org-tab svg {
+  width: 16px; height: 16px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.org-tab:hover {
+  color: var(--slate);
+  background: rgba(107,143,113,0.04);
+}
+.org-tab.active {
+  color: var(--slate);
+  font-weight: 600;
+  border-bottom-color: var(--warm);
+}
+.org-tab.active svg { opacity: 1; }
+
+/* ── Panels ───────────────────────────────────────────────────── */
+.org-panel {
+  display: none;
+}
+.org-panel.active {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Tier rows */
-.db-org-tier {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  position: relative;
-  width: 100%;
-}
-
-/* Connector lines */
-.db-org-tier + .db-org-tier::before {
-  content: '';
-  position: absolute;
-  top: -1rem;
-  left: 50%;
-  width: 2px;
-  height: 1rem;
-  background: rgba(107,143,113,0.2);
-}
-
-/* Person card */
-.db-org-person {
+/* ── Chart Card ───────────────────────────────────────────────── */
+.org-chart-card {
   background: var(--white);
   border-radius: var(--r-md);
   border: 1px solid rgba(107,143,113,0.1);
-  padding: 1.5rem 1.75rem;
-  text-align: center;
-  min-width: 200px;
-  max-width: 260px;
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-.db-org-person:hover {
-  box-shadow: 0 8px 32px rgba(44,62,53,0.1);
-  transform: translateY(-2px);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(44,62,53,0.06);
 }
 
-.db-org-avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(107,143,113,0.1);
-  display: grid;
-  place-items: center;
-  margin: 0 auto 1rem;
-  font-family: var(--font-display);
-  font-size: 1.2rem;
+.org-chart-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(107,143,113,0.08);
+  background: #F9FAF9;
+}
+.org-chart-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--slate-mid);
+}
+.org-chart-label svg { width: 16px; height: 16px; color: var(--sage); }
+
+.org-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.org-zoom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--slate-mid);
+  background: var(--white);
+  border: 1px solid rgba(107,143,113,0.15);
+  border-radius: 50px;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.org-zoom-btn:hover {
+  background: var(--sage-pale);
+  border-color: var(--sage-light);
   color: var(--sage-dark);
 }
-.db-org-person h3 {
+
+.org-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-family: var(--font-body);
-  font-size: 0.92rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--sage);
+  border: none;
+  border-radius: 50px;
+  padding: 0.4rem 0.85rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.org-download-btn:hover { background: var(--sage-dark); }
+
+/* Image container */
+.org-chart-img-wrap {
+  position: relative;
+  cursor: zoom-in;
+  overflow: hidden;
+  background: #F5F3EE;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.org-chart-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  max-height: 75vh;
+  object-fit: contain;
+}
+.org-chart-img-wrap:hover img {
+  transform: scale(1.01);
+}
+.org-zoom-hint {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--slate-mid);
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(107,143,113,0.12);
+  border-radius: 50px;
+  padding: 0.3rem 0.75rem;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.org-zoom-hint svg { width: 13px; height: 13px; }
+.org-chart-img-wrap:hover .org-zoom-hint { opacity: 0; }
+
+/* ── PDF Card ─────────────────────────────────────────────────── */
+.org-pdf-card {
+  background: var(--white);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(107,143,113,0.1);
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 12px rgba(44,62,53,0.06);
+}
+
+.org-pdf-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(232,93,122,0.08);
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.org-pdf-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke: #E85D7A;
+}
+
+.org-pdf-info { flex: 1; min-width: 0; }
+.org-pdf-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #b8284d;
+  background: rgba(232,93,122,0.1);
+  border-radius: 50px;
+  padding: 0.18rem 0.65rem;
+  margin-bottom: 0.5rem;
+}
+.org-pdf-info h3 {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
   font-weight: 600;
   color: var(--slate);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
 }
-.db-org-person p {
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-.db-org-role-tag {
-  display: inline-block;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-radius: 50px;
-  padding: 0.2rem 0.65rem;
-  margin-top: 0.5rem;
-}
-
-/* Tier-specific styling */
-.db-org-tier--lead .db-org-person {
-  border-color: rgba(201,123,75,0.25);
-  background: linear-gradient(180deg, rgba(201,123,75,0.03) 0%, var(--white) 100%);
-}
-.db-org-tier--lead .db-org-avatar {
-  background: rgba(201,123,75,0.12);
-  color: var(--warm);
-}
-
-.db-org-tier--managers .db-org-person {
-  border-color: rgba(74,144,196,0.15);
-}
-.db-org-tier--managers .db-org-avatar {
-  background: rgba(74,144,196,0.1);
-  color: #185FA5;
-}
-
-/* Placeholder note */
-.db-org-note {
-  background: rgba(245,200,66,0.08);
-  border: 1px solid rgba(245,200,66,0.2);
-  border-radius: var(--r-md);
-  padding: 1.25rem 1.75rem;
-  font-size: 0.85rem;
+.org-pdf-info p {
+  font-size: 0.8rem;
+  font-weight: 300;
   color: var(--text-muted);
   line-height: 1.6;
-  text-align: center;
-  max-width: 600px;
-  margin: 1rem auto 0;
+  margin-bottom: 0.65rem;
 }
-.db-org-note strong {
-  color: var(--slate);
+.org-pdf-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.org-pdf-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.73rem;
+  font-weight: 500;
+  color: var(--text-muted);
 }
 
+.org-pdf-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.org-pdf-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--warm);
+  border-radius: 50px;
+  padding: 0.55rem 1.1rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.org-pdf-open:hover { background: #b56a3a; }
+.org-pdf-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--sage-dark);
+  background: var(--sage-pale);
+  border-radius: 50px;
+  padding: 0.55rem 1.1rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.org-pdf-download:hover { background: rgba(107,143,113,0.15); }
+
+/* PDF iframe embed */
+.org-pdf-embed-wrap {
+  background: var(--white);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(107,143,113,0.1);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(44,62,53,0.06);
+}
+.org-pdf-iframe {
+  width: 100%;
+  height: 75vh;
+  min-height: 500px;
+  border: none;
+  display: block;
+}
+
+/* ── Lightbox ─────────────────────────────────────────────────── */
+.org-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 16, 13, 0.92);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+  cursor: zoom-out;
+}
+.org-lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.org-lightbox-inner {
+  position: relative;
+  max-width: 95vw;
+  max-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.org-lightbox-inner img {
+  max-width: 95vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+  object-fit: contain;
+  cursor: default;
+}
+.org-lightbox-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 38px;
+  height: 38px;
+  background: var(--white);
+  border: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transition: background 0.2s, transform 0.2s;
+  z-index: 1;
+}
+.org-lightbox-close:hover {
+  background: var(--off-white);
+  transform: scale(1.1);
+}
+.org-lightbox-close svg { width: 16px; height: 16px; color: var(--slate); }
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .org-pdf-card { flex-wrap: wrap; }
+  .org-pdf-actions { flex-direction: row; width: 100%; }
+}
 @media (max-width: 640px) {
-  .db-org-tier { flex-direction: column; align-items: center; }
-  .db-org-person { min-width: unset; width: 100%; max-width: 300px; }
+  .org-tabs { overflow-x: auto; gap: 0; }
+  .org-tab { font-size: 0.78rem; padding: 0.65rem 0.85rem; }
+  .org-pdf-card { flex-direction: column; align-items: flex-start; }
+  .org-toolbar-actions { gap: 0.4rem; }
 }
