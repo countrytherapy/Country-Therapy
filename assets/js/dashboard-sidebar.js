@@ -11,7 +11,7 @@
   var links = [
     {
       id: 'home',
-      href: '/portal/',
+      href: '/portal/dashboard/',
       label: 'Home',
       group: 'Main',
       icon: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'
@@ -110,7 +110,7 @@
   sidebar.id = 'dbSidebar';
 
   sidebar.innerHTML =
-    '<a href="/portal/" class="db-sidebar-logo">' +
+    '<a href="/portal/dashboard/" class="db-sidebar-logo">' +
       '<img src="/assets/images/Logo.png" alt="Country Therapy" />' +
       '<div class="db-sidebar-logo-text">' +
         '<span>Country Therapy</span>' +
@@ -142,7 +142,7 @@
 
   var breadcrumbHTML = active === 'home'
     ? '<span>' + pageTitle + '</span>'
-    : '<a href="/portal/">Home</a> / <span>' + pageTitle + '</span>';
+    : '<a href="/portal/dashboard/">Home</a> / <span>' + pageTitle + '</span>';
 
   topbar.innerHTML =
     '<div class="db-topbar-left">' +
