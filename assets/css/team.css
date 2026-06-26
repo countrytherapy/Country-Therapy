@@ -129,9 +129,18 @@
   box-shadow: 0 14px 48px rgba(44, 62, 53, 0.1);
   transform: translateY(-3px);
 }
-.tm.alt { grid-template-columns: 1fr 280px; }
-.tm.alt .tm-img  { order: 2; }
-.tm.alt .tm-body { order: 1; }
+/* Automatically alternate every second card */
+.tm:nth-child(even) {
+  grid-template-columns: 1fr 280px;
+}
+
+.tm:nth-child(even) .tm-img {
+  order: 2;
+}
+
+.tm:nth-child(even) .tm-body {
+  order: 1;
+}
 
 /* ── Photo column ─────────────────────────────────────────────── */
 .tm-img {
