@@ -494,7 +494,7 @@
 }
 @media (max-width: 580px) {
   .loc-services-grid { grid-template-columns: 1fr; }
-  .loc-nearby-grid  { grid-template-columns: 1fr 1fr; }
+  .loc-nearby-grid  { grid-template-columns: 1fr; }
   .loc-why-stat-stack { grid-template-columns: 1fr; }
   .cta-acts { flex-direction: column; }
   .loc-hero-actions { flex-direction: column; align-items: flex-start; }
