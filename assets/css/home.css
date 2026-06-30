@@ -232,13 +232,12 @@
     grid-template-columns: 1fr;
   }
   .hero-copy {
-    padding: 4rem 1.5rem rem;
+    padding: 4rem 1.5rem;
     text-align: center;
     max-width: 100%;
   }
   .hero-visual {
     padding: 2rem 1.5rem 5rem;
-    order: -1;
   }
   .hero-img-main {
     width: clamp(260px, 80vw, 420px);
@@ -569,4 +568,8 @@
   .ass-g        { grid-template-columns: 1fr; }
   .cta-acts     { flex-direction: column; }
   .svc-footer   { flex-direction: column; text-align: center; }
+}
+@media (max-width: 640px) {
+  .ass-tabs { gap: 0.35rem; }
+  .ass-tab  { font-size: 0.78rem; padding: 0.4rem 0.85rem; }
 }
