@@ -12,6 +12,44 @@
   <link rel="stylesheet" href="../../assets/css/nav-footer.css" />
   <link rel="stylesheet" href="../../assets/css/portal/auth.css" />
 </head>
+<style>
+  .auth-maintenance-notice {
+  margin: 16px 0;
+  padding: 12px 14px;
+  border: 1px solid #e6a3ad;
+  border-left: 4px solid #c94257;
+  border-radius: 8px;
+  background: #fff5f6;
+  color: #7d2735;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.auth-maintenance-notice strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #ad3045;
+  font-size: 0.9rem;
+}
+
+.auth-maintenance-notice span {
+  display: block;
+}
+
+.auth-maintenance-notice small {
+  display: block;
+  margin-top: 5px;
+  color: #9b5964;
+  font-size: 0.72rem;
+}
+
+.auth-maintenance-notice a {
+  color: #a52c40;
+  font-weight: 600;
+  text-decoration: underline;
+}
+</style>
 <body>
 
 <div id="nav-root"></div>
@@ -35,7 +73,17 @@
     </div>
     <h1>Welcome <em>Back</em></h1>
     <p>Log in to access your exclusive occupational therapy learning resources.</p>
-
+    <div class="auth-maintenance-notice" role="alert">
+      <strong>Login temporarily unavailable</strong>
+      <span>
+        Anisha is currently moving the website to a new authentication provider,
+        so please don’t log in or create an account just yet. Thank you for your
+        patience! Please
+        <a href="mailto:itcountrytherapy@gmail.com">email me</a>
+        with any concerns. ☺️
+      </span>
+      <small>Updated 14 July</small>
+    </div>
     <div id="message" class="auth-message"></div>
 
     <form id="login-form" class="auth-form">
