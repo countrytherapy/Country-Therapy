@@ -62,7 +62,7 @@
           <a href="${rel}blog/" role="menuitem">Blog</a>
           <a href="${rel}faqs/" role="menuitem">FAQs</a>
           <a href="${rel}work-with-us/" role="menuitem">Work With Us</a>
-          <a href="${rel}portal/login/" role="menuitem">Staff Portal</a>
+          <a href="https://portal.countrytherapy.com.au" role="menuitem">Staff Portal</a>
         </div>
       </li>
     </ul>
@@ -92,7 +92,7 @@
       <li><a href="${rel}blog/">Blog</a></li>
       <li><a href="${rel}faqs/">FAQs</a></li>
       <li><a href="${rel}work-with-us/">Work With Us</a></li>
-      <li><a href="${rel}portal/login/">Staff Portal</a></li>
+      <li><a href="https://portal.countrytherapy.com.au">Staff Portal</a></li>
       <li class="nav-mobile-cta">
         <a href="${rel}contact/" class="btn-primary">Contact Us</a>
       </li>
