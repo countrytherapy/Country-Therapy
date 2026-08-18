@@ -59,7 +59,6 @@
         </button>
         <div class="nav-dropdown" role="menu">
           <a href="${rel}community-commitment/" role="menuitem">Our Community Commitment</a>
-          <a href="${rel}blog/" role="menuitem">Blog</a>
           <a href="${rel}faqs/" role="menuitem">FAQs</a>
           <a href="${rel}work-with-us/" role="menuitem">Work With Us</a>
           <a href="https://portal.countrytherapy.com.au" role="menuitem">Staff Portal</a>
@@ -89,7 +88,6 @@
       <li><a href="${rel}learning/">Learning</a></li>
       <li class="nav-mobile-divider"></li>
       <li><a href="${rel}community-commitment/">Community Commitment</a></li>
-      <li><a href="${rel}blog/">Blog</a></li>
       <li><a href="${rel}faqs/">FAQs</a></li>
       <li><a href="${rel}work-with-us/">Work With Us</a></li>
       <li><a href="https://portal.countrytherapy.com.au">Staff Portal</a></li>
