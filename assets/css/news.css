@@ -78,6 +78,7 @@
   overflow: hidden;
   display: grid;
   grid-template-columns: 280px 1fr;
+  min-width: 0;
   transition: box-shadow 0.3s, transform 0.3s;
 }
 .news-card:hover {
@@ -132,6 +133,7 @@
   position: relative;
   overflow: hidden;
   min-height: 200px;
+  min-width: 0;
   flex-shrink: 0;
 }
 .news-card-img img {
@@ -173,6 +175,7 @@
   flex-direction: column;
   gap: 0.75rem;
   justify-content: center;
+  min-width: 0;
 }
 
 .news-card-meta {
@@ -208,6 +211,7 @@
   font-size: 1.3rem;
   color: var(--slate);
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 .news-card--featured .news-title { font-size: 1.6rem; }
 
