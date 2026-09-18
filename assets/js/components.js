@@ -58,6 +58,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="nav-dropdown" role="menu">
+          <a href="${rel}blog/" role="menuitem">Blog</a>
           <a href="${rel}community-commitment/" role="menuitem">Our Community Commitment</a>
           <a href="${rel}faqs/" role="menuitem">FAQs</a>
           <a href="${rel}work-with-us/" role="menuitem">Work With Us</a>
@@ -87,6 +88,7 @@
       <li><a href="${rel}news/">News</a></li>
       <li><a href="${rel}learning/">Learning</a></li>
       <li class="nav-mobile-divider"></li>
+      <li><a href="${rel}blog/">Blog</a></li>
       <li><a href="${rel}community-commitment/">Community Commitment</a></li>
       <li><a href="${rel}faqs/">FAQs</a></li>
       <li><a href="${rel}work-with-us/">Work With Us</a></li>

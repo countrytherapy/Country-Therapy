@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog – Country Therapy | News, Insights &amp; Stories from Regional OT</title>
+  <title>Blog &amp; Resources – Country Therapy | Occupational Therapy Insights</title>
   <link rel="icon" type="image/png" href="../assets/images/Logo.png">
-  <meta name="description" content="Stories, updates and insights from Country Therapy, occupational therapy news, community impact, clinical expertise and life in regional Victoria." />
+  <meta name="description" content="Practical occupational therapy articles and free resources for parents, carers and schools, from the Country Therapy team across regional Victoria." />
   <link rel="canonical" href="https://www.countrytherapy.com.au/blog/" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
@@ -16,191 +15,118 @@
   <link rel="stylesheet" href="../assets/css/blog.css" />
 </head>
 <body>
-  <noscript><meta http-equiv="refresh" content="0; url=../" /></noscript>
-  <script>
-    window.location.replace('../');
-  </script>
+
 <div id="nav-root"></div>
 
 <!-- ══ HERO ══ -->
 <section class="blog-hero">
   <div class="blog-hero-bg" aria-hidden="true">
-    <div class="blog-blob blog-blob-1"></div>
-    <div class="blog-blob blog-blob-2"></div>
+    <span class="blog-blob blog-blob-1"></span>
+    <span class="blog-blob blog-blob-2"></span>
   </div>
   <div class="container blog-hero-inner">
-    <p class="sec-lbl reveal">Stories &amp; Insights</p>
-    <h1 class="blog-h1 reveal d1">The Country Therapy <em>Blog</em></h1>
-    <p class="blog-sub reveal d2">News, updates and stories from the team, clinical insights, community impact, regional OT life, and the people making it happen.</p>
-  </div>
-</section>
+    <p class="sec-lbl reveal">Articles &amp; Resources</p>
+    <h1 class="blog-h1 reveal d1">Practical OT, <em>plainly explained</em></h1>
+    <p class="blog-sub reveal d2">Articles and free resources for parents, carers and schools, written by the therapists who use them.</p>
 
-<!-- ══ FEATURED ══ -->
-<section class="blog-featured">
-  <div class="container">
-    <div class="blog-featured-card reveal">
-      <div class="blog-featured-img">
-        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=900&q=80&fit=crop" alt="" loading="lazy" />
-        <span class="blog-badge" style="--badge-bg:#4A90C4;--badge-text:#0C447C">Community</span>
+    <div class="blog-search-wrap reveal d2">
+      <div class="blog-search" id="searchBox">
+        <svg class="blog-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="search" id="search" placeholder="Search articles, e.g. sensory, school, motor skills" aria-label="Search articles and resources" autocomplete="off" />
+        <button class="blog-search-clear" id="clear" type="button" aria-label="Clear search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
       </div>
-      <div class="blog-featured-body">
-        <p class="blog-date">12 May 2026</p>
-        <h2 class="blog-featured-title">Bringing OT to the Grampians, why regional communities need mobile therapy</h2>
-        <p class="blog-featured-excerpt">For many families in regional Victoria, accessing occupational therapy means long drives, time off work, and waitlists that stretch for months. Here's why Country Therapy exists, and what we've learned about bringing quality allied health care directly to rural and regional communities.</p>
-        <a href="#" class="blog-read-link">
-          Read the story
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-      </div>
+      <p class="blog-search-hint" id="hint" role="status" aria-live="polite"></p>
     </div>
   </div>
 </section>
 
-<!-- ══ LATEST POSTS ══ -->
+<!-- ══ POSTS ══ -->
 <section class="blog-posts">
   <div class="container">
-    <div class="blog-section-hdr reveal">
-      <h2 class="sec-h">Latest <em>posts</em></h2>
+    <div class="blog-section-hdr">
+      <h2 class="sec-h">All <em>articles</em></h2>
       <div class="blog-filters">
         <button class="blog-filter-btn active" data-filter="all">All</button>
-        <button class="blog-filter-btn" data-filter="community">Community</button>
-        <button class="blog-filter-btn" data-filter="clinical">Clinical</button>
-        <button class="blog-filter-btn" data-filter="team">Team</button>
-        <button class="blog-filter-btn" data-filter="news">News</button>
+        <button class="blog-filter-btn" data-filter="sensory">Sensory</button>
+        <button class="blog-filter-btn" data-filter="school">School &amp; Learning</button>
+        <button class="blog-filter-btn" data-filter="development">Development</button>
+        <button class="blog-filter-btn" data-filter="resources">Free resources</button>
       </div>
     </div>
 
-    <div class="blog-grid">
+    <div class="blog-grid" id="grid">
 
-      <!-- Post 1 -->
-      <article class="blog-card reveal" data-category="clinical">
-        <div class="blog-card-img">
-          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80&fit=crop" alt="" loading="lazy" />
-          <span class="blog-badge" style="--badge-bg:#6B8F71;--badge-text:#27500A">Clinical</span>
+      <article class="blog-card reveal" data-category="resources"
+        data-keywords="problem solving printable free download worry behaviour school home outings extracurricular steps calm fridge poster kids children react respond">
+        <div class="blog-card-img" style="background:#FDF1E8">
+          <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:100%;display:block">
+            <rect width="400" height="240" fill="#FDF1E8"/>
+            <rect x="148" y="42" width="104" height="146" rx="6" fill="#fff" stroke="rgba(201,123,75,0.3)" stroke-width="1.5" transform="rotate(-4 200 115)"/>
+            <g transform="rotate(-4 200 115)">
+              <circle cx="170" cy="76" r="7" fill="none" stroke="#C97B4B" stroke-width="1.8"/>
+              <rect x="185" y="72" width="52" height="4.5" rx="2.2" fill="#E6EAE7"/>
+              <circle cx="170" cy="106" r="7" fill="none" stroke="#C97B4B" stroke-width="1.8"/>
+              <rect x="185" y="102" width="52" height="4.5" rx="2.2" fill="#E6EAE7"/>
+              <circle cx="170" cy="136" r="7" fill="none" stroke="#C97B4B" stroke-width="1.8"/>
+              <rect x="185" y="132" width="40" height="4.5" rx="2.2" fill="#E6EAE7"/>
+            </g>
+            <circle cx="322" cy="62" r="26" fill="rgba(201,123,75,0.14)"/>
+            <circle cx="72" cy="182" r="17" fill="rgba(201,123,75,0.1)"/>
+          </svg>
+          <span class="blog-badge" style="--badge-bg:#C97B4B;--badge-text:#fff">Free resource</span>
         </div>
         <div class="blog-card-body">
-          <p class="blog-date">8 May 2026</p>
-          <h3 class="blog-card-title">What parents need to know about sensory processing</h3>
-          <p class="blog-card-excerpt">Not all children with sensory processing differences have a diagnosis, but that doesn't mean they don't need support. Here's what to look for and when to seek help.</p>
-          <a href="#" class="blog-read-link">
+          <p class="blog-date">3 min read</p>
+          <h3 class="blog-card-title">A problem solving printable, free for your fridge door</h3>
+          <p class="blog-card-excerpt">When something goes wrong, children often know they are upset long before they know what to do about it. This free print out gives them a simple, repeatable set of steps to fall back on.</p>
+          <p class="blog-card-where"></p>
+          <a href="./problem-solving-printable/" class="blog-read-link">
             Read more
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
         </div>
       </article>
 
-      <!-- Post 2 -->
-      <article class="blog-card reveal d1" data-category="team">
-        <div class="blog-card-img">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80&fit=crop" alt="" loading="lazy" />
-          <span class="blog-badge" style="--badge-bg:#E85D7A;--badge-text:#791F1F">Team</span>
+      <article class="blog-card reveal d1" data-category="sensory"
+        data-keywords="sensory processing five senses brain receives processes responds touch sight hearing smell taste stimuli autism adhd over under stimulation regulation behaviour parent teacher interview">
+        <div class="blog-card-img" style="background:#EAF4FC">
+          <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:100%;display:block">
+            <rect width="400" height="240" fill="#EAF4FC"/>
+            <circle cx="200" cy="120" r="76" fill="none" stroke="rgba(74,144,196,0.25)" stroke-width="1.5"/>
+            <circle cx="200" cy="120" r="54" fill="none" stroke="rgba(74,144,196,0.32)" stroke-width="1.5"/>
+            <circle cx="200" cy="120" r="32" fill="none" stroke="rgba(74,144,196,0.4)" stroke-width="1.5"/>
+            <circle cx="200" cy="120" r="13" fill="#4A90C4" opacity="0.65"/>
+            <circle cx="200" cy="44" r="6" fill="#4A90C4" opacity="0.55"/>
+            <circle cx="272" cy="120" r="6" fill="#4A90C4" opacity="0.55"/>
+            <circle cx="200" cy="196" r="6" fill="#4A90C4" opacity="0.55"/>
+            <circle cx="128" cy="120" r="6" fill="#4A90C4" opacity="0.55"/>
+            <circle cx="252" cy="68" r="5" fill="#4A90C4" opacity="0.4"/>
+          </svg>
+          <span class="blog-badge" style="--badge-bg:#4A90C4;--badge-text:#fff">Sensory</span>
         </div>
         <div class="blog-card-body">
-          <p class="blog-date">3 May 2026</p>
-          <h3 class="blog-card-title">Meet Lachlan, from new grad to clinical lead</h3>
-          <p class="blog-card-excerpt">We sat down with Lachlan to talk about his journey from new graduate to one of Country Therapy's most experienced clinicians, and what keeps him passionate about rural OT.</p>
-          <a href="#" class="blog-read-link">
+          <p class="blog-date">4 min read</p>
+          <h3 class="blog-card-title">Sensory processing: what is it?</h3>
+          <p class="blog-card-excerpt">Do you often hear at your child's doctor's appointment or parent teacher interviews the words "sensory processing" and think, what is that?</p>
+          <p class="blog-card-where"></p>
+          <a href="./sensory-processing/" class="blog-read-link">
             Read more
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
         </div>
       </article>
 
-      <!-- Post 3 -->
-      <article class="blog-card reveal d2" data-category="news">
-        <div class="blog-card-img">
-          <img src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?w=600&q=80&fit=crop" alt="" loading="lazy" />
-          <span class="blog-badge" style="--badge-bg:#F5C842;--badge-text:#633806">News</span>
+      <div class="blog-empty" id="empty">
+        <div class="blog-empty-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M8 11h6"/></svg>
         </div>
-        <div class="blog-card-body">
-          <p class="blog-date">28 April 2026</p>
-          <h3 class="blog-card-title">Country Therapy expands to Melbourne's outer west</h3>
-          <p class="blog-card-excerpt">We're excited to announce that Country Therapy is now servicing Melbourne's rapidly growing outer western suburbs, Tarneit, Hoppers Crossing, Point Cook and beyond.</p>
-          <a href="#" class="blog-read-link">
-            Read more
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <!-- Post 4 -->
-      <article class="blog-card reveal" data-category="community">
-        <div class="blog-card-img">
-          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80&fit=crop" alt="" loading="lazy" />
-          <span class="blog-badge" style="--badge-bg:#4A90C4;--badge-text:#0C447C">Community</span>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-date">22 April 2026</p>
-          <h3 class="blog-card-title">How we support NDIS participants in the Wimmera</h3>
-          <p class="blog-card-excerpt">Distance is one of the biggest barriers to NDIS support in regional areas. Here's how Country Therapy's mobile model is making a difference for Wimmera families.</p>
-          <a href="#" class="blog-read-link">
-            Read more
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <!-- Post 5 -->
-      <article class="blog-card reveal d1" data-category="clinical">
-        <div class="blog-card-img">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&fit=crop" alt="" loading="lazy" />
-          <span class="blog-badge" style="--badge-bg:#6B8F71;--badge-text:#27500A">Clinical</span>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-date">16 April 2026</p>
-          <h3 class="blog-card-title">Falls prevention at home, simple changes that make a big difference</h3>
-          <p class="blog-card-excerpt">Most falls happen at home. An OT home safety assessment can identify risks and recommend modifications that significantly reduce fall risk for older adults.</p>
-          <a href="#" class="blog-read-link">
-            Read more
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <!-- Post 6 -->
-      <article class="blog-card reveal d2" data-category="team">
-        <div class="blog-card-img">
-          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80&fit=crop" alt="" loading="lazy" />
-          <span class="blog-badge" style="--badge-bg:#E85D7A;--badge-text:#791F1F">Team</span>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-date">10 April 2026</p>
-          <h3 class="blog-card-title">Why I chose regional OT, Ros Atkinson's story</h3>
-          <p class="blog-card-excerpt">Country Therapy founder Ros Atkinson reflects on why she started a mobile OT practice in Stawell, and why regional work is some of the most rewarding in allied health.</p>
-          <a href="#" class="blog-read-link">
-            Read more
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </a>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- Load more -->
-    <div class="blog-load-more reveal">
-      <button class="btn-load-more">
-        Load more posts
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px"><path d="M8 3v10M3 8h10"/></svg>
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ══ NEWSLETTER ══ -->
-<section class="blog-newsletter">
-  <div class="container">
-    <div class="blog-newsletter-card reveal">
-      <div class="blog-newsletter-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        <h3>Nothing matched that</h3>
+        <p>Try a different word, or ask us directly. We are happy to point you somewhere useful.</p>
+        <a href="../contact/" class="btn-primary">Ask our team</a>
       </div>
-      <div class="blog-newsletter-body">
-        <h2>Stay in the loop</h2>
-        <p>Get new posts, updates and stories from Country Therapy delivered straight to your inbox, no spam, just the good stuff.</p>
-        <form class="blog-newsletter-form">
-          <input type="email" placeholder="Your email address" required />
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
+
     </div>
   </div>
 </section>
@@ -208,39 +134,87 @@
 <div id="footer-root"></div>
 <script src="../assets/js/components.js"></script>
 <script>
-  // Filter functionality
-  const filterBtns = document.querySelectorAll('.blog-filter-btn');
-  const cards = document.querySelectorAll('.blog-card');
+(function () {
+  const input   = document.getElementById('search');
+  const box     = document.getElementById('searchBox');
+  const clear   = document.getElementById('clear');
+  const hint    = document.getElementById('hint');
+  const empty   = document.getElementById('empty');
+  const cards   = [...document.querySelectorAll('.blog-card')];
+  const filters = [...document.querySelectorAll('.blog-filter-btn')];
+  let category = 'all';
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const filter = this.getAttribute('data-filter');
-      
-      // Update active state
-      filterBtns.forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      
-      // Filter cards
-      cards.forEach(card => {
-        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+  // snapshot the original text so highlighting never compounds
+  cards.forEach(c => {
+    c._title = c.querySelector('.blog-card-title').textContent;
+    c._excerpt = c.querySelector('.blog-card-excerpt').textContent;
+    c._keywords = (c.dataset.keywords || '');
+    c._haystack = (c._title + ' ' + c._excerpt + ' ' + c._keywords).toLowerCase();
+  });
+
+  const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+  function mark(el, text, term) {
+    if (!term) { el.textContent = text; return false; }
+    const re = new RegExp('(' + esc(term) + ')', 'ig');
+    if (!re.test(text)) { el.textContent = text; return false; }
+    el.innerHTML = text.replace(new RegExp('(' + esc(term) + ')', 'ig'), '<mark class="bl-hit">$1</mark>');
+    return true;
+  }
+
+  function run() {
+    const term = input.value.trim();
+    const t = term.toLowerCase();
+    box.classList.toggle('has-value', term.length > 0);
+
+    let shown = 0;
+    cards.forEach(card => {
+      const inCategory = category === 'all' || card.dataset.category === category;
+      const matches = !t || card._haystack.includes(t);
+      const show = inCategory && matches;
+      card.hidden = !show;
+      if (show) shown++;
+
+      const titleEl = card.querySelector('.blog-card-title');
+      const excerptEl = card.querySelector('.blog-card-excerpt');
+      const whereEl = card.querySelector('.blog-card-where');
+      const inTitle = mark(titleEl, card._title, t);
+      const inExcerpt = mark(excerptEl, card._excerpt, t);
+
+      // if the hit was only in the keyword index, say so rather than showing nothing
+      if (show && t && !inTitle && !inExcerpt) {
+        whereEl.textContent = 'Matched inside this article';
+        card.classList.add('showing-match');
+      } else {
+        card.classList.remove('showing-match');
+      }
     });
+
+    empty.classList.toggle('on', shown === 0);
+
+    if (!term && category === 'all') hint.textContent = '';
+    else if (shown === 0) hint.innerHTML = 'No matches for <strong>' + term.replace(/</g,'&lt;') + '</strong>';
+    else hint.innerHTML = shown + (shown === 1 ? ' article' : ' articles') + (term ? ' matching <strong>' + term.replace(/</g,'&lt;') + '</strong>' : '');
+  }
+
+  input.addEventListener('input', run);
+  clear.addEventListener('click', () => { input.value = ''; input.focus(); run(); });
+  input.addEventListener('keydown', e => { if (e.key === 'Escape') { input.value = ''; run(); } });
+
+  filters.forEach(btn => btn.addEventListener('click', function () {
+    filters.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    category = this.dataset.filter;
+    run();
+  }));
+
+  // "/" focuses search, the way a search-first page should behave
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement !== input) { e.preventDefault(); input.focus(); }
   });
 
-  // Newsletter form
-  document.querySelector('.blog-newsletter-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Newsletter subscription feature coming soon!');
-  });
-
-  // Load more
-  document.querySelector('.btn-load-more').addEventListener('click', function() {
-    alert('Load more posts feature coming soon!');
-  });
+  run();
+})();
 </script>
 </body>
 </html>
