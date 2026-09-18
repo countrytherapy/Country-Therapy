@@ -90,7 +90,7 @@
   margin-inline: auto;
   padding-inline: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
@@ -383,41 +383,7 @@
   .bk-contact-btns { flex-direction: column; align-items: center; }
   .cta-acts { flex-direction: column; }
 }
-/* ── FOUR ACROSS ON WIDE SCREENS ────────────────────────────
-   Four booklets in one row. Everything inside the card tightens
-   to suit the narrower column; below this the grid falls back to
-   two-up, then one-up under 860px. */
-@media (min-width: 1181px) {
-  .bk-container {
-    max-width: 1200px;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-  }
-
-  .bk-card-visual { min-height: 172px; padding: 2rem 1rem; }
-  .bk-doc-pages   { width: 112px; height: 130px; }
-  .bk-page        { width: 88px; height: 118px; border-radius: 7px; }
-
-  /* Fill the card and stack from the top, so the download buttons line
-     up across the row instead of floating at four different heights. */
-  .bk-card-body   { padding: 1.5rem 1.35rem; gap: 0.7rem; flex: 1; justify-content: flex-start; }
-
-  /* "Support at Home" is the longest tag and will not sit beside the
-     format label at this width, so let the pair wrap. */
-  .bk-card-meta   { flex-wrap: wrap; gap: 0.45rem 0.6rem; }
-  .bk-tag         { font-size: 0.62rem; letter-spacing: 0.06em; padding: 0.2rem 0.6rem; }
-  .bk-format      { font-size: 0.66rem; }
-
-  .bk-card-title  { font-size: 1.12rem; }
-  .bk-card-desc   { font-size: 0.79rem; line-height: 1.6; }
-
-  .bk-highlights    { gap: 0.35rem; }
-  .bk-highlights li { font-size: 0.76rem; padding-left: 0.95rem; line-height: 1.45; }
-
-  .bk-download-btn {
-    font-size: 0.76rem;
-    padding: 0.6rem 1rem;
-    gap: 0.45rem;
-    margin-top: auto;
-  }
-}
+/* Cards fill their row and stack from the top, so the download buttons
+   line up across the row instead of floating at three different heights. */
+.bk-card-body { flex: 1; justify-content: flex-start; }
+.bk-download-btn { margin-top: auto; }
