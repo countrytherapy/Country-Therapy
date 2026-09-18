@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sensory Play at Home: Unlocking Imagination With Everyday Items | Country Therapy</title>
+  <link rel="icon" type="image/png" href="../../assets/images/Logo.png">
+  <meta name="description" content="Five DIY sensory activities using household items, plus why sensory play matters, safety tips, and what it offers children at each age." />
+  <link rel="canonical" href="https://www.countrytherapy.com.au/blog/sensory-play-at-home/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/base.css" />
+  <link rel="stylesheet" href="../../assets/css/nav-footer.css" />
+  <link rel="stylesheet" href="../../assets/css/blog-post.css" />
+  <style>
+    /* recipe-card treatment for the five activities */
+    .sp-recipes { display: grid; gap: 0.9rem; margin: 2rem 0 2.5rem; counter-reset: rc; }
+    .sp-recipe {
+      counter-increment: rc; position: relative;
+      background: var(--white); border: 1px solid rgba(74,144,196,0.22);
+      border-radius: var(--r-md); padding: 1.4rem 1.5rem 1.4rem 4.2rem;
+      transition: transform .22s, box-shadow .22s;
+    }
+    .sp-recipe:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .sp-recipe::before {
+      content: counter(rc);
+      position: absolute; left: 1.35rem; top: 1.45rem;
+      width: 2rem; height: 2rem; border-radius: 50%;
+      background: var(--pa); color: #fff;
+      font-size: 0.82rem; font-weight: 700;
+      display: grid; place-items: center;
+    }
+    .sp-recipe h4 { font-size: 1rem; font-weight: 600; color: var(--slate); margin: 0 0 0.35rem; }
+    .sp-recipe p { font-size: 0.9rem !important; line-height: 1.65 !important; margin: 0 !important; }
+    /* age strip */
+    .sp-ages { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.8rem; margin: 2rem 0 2.5rem; }
+    .sp-age { background: var(--pa-pale); border-radius: var(--r-md); padding: 1.3rem 1.25rem; }
+    .sp-age strong { display: block; font-family: var(--font-display); font-size: 1.05rem; color: var(--pa-ink); margin-bottom: 0.15rem; }
+    .sp-age em { display: block; font-style: normal; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
+    .sp-age p { font-size: 0.85rem !important; line-height: 1.6 !important; margin: 0 !important; }
+    @media (max-width: 640px) {
+      .sp-ages { grid-template-columns: 1fr; }
+      .sp-recipe { padding: 1.2rem 1.25rem 1.2rem 3.7rem; }
+    }
+  </style>
+</head>
+<body class="post-root" style="--pa:#4A90C4;--pa-pale:#EAF4FC;--pa-ink:#185FA5">
+
+<div class="post-progress" id="progress"></div>
+<div id="nav-root"></div>
+
+<article>
+<header class="post-hero">
+  <div class="post-hero-art" aria-hidden="true">
+    <svg viewBox="0 0 1440 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1090" y="160" width="130" height="90" rx="12" fill="none" stroke="rgba(74,144,196,0.3)" stroke-width="2"/>
+      <circle cx="1125" cy="205" r="9" fill="rgba(74,144,196,0.3)"/>
+      <circle cx="1155" cy="222" r="7" fill="rgba(74,144,196,0.22)"/>
+      <circle cx="1185" cy="198" r="10" fill="rgba(74,144,196,0.26)"/>
+      <circle cx="1280" cy="120" r="30" fill="rgba(74,144,196,0.12)"/>
+      <path d="M960 300 q30 -40 60 0 t60 0" fill="none" stroke="rgba(74,144,196,0.25)" stroke-width="2"/>
+    </svg>
+  </div>
+  <div class="container post-hero-inner">
+    <a href="../" class="post-crumb"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M13 8H3M7 4L3 8l4 4"/></svg> All articles</a>
+    <div class="post-meta">
+      <span class="post-tag">Sensory</span>
+      <span class="post-readtime"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 6 min read</span>
+    </div>
+    <h1 class="post-title">Sensory play at home: unlocking imagination with <em>everyday items</em></h1>
+    <p class="post-standfirst">You don't need specialised equipment or materials. Common household items can become the perfect tools for exploration and learning.</p>
+  </div>
+</header>
+
+<div class="container post-layout">
+  <nav class="post-toc" aria-label="On this page">
+    <p class="post-toc-h">On this page</p>
+    <ol>
+      <li><a href="#why">Why sensory play matters</a></li>
+      <li><a href="#diy">5 DIY activities</a></li>
+      <li><a href="#tips">Tips and precautions</a></li>
+      <li><a href="#ages">Benefits by age group</a></li>
+      <li><a href="#start">Getting started</a></li>
+    </ol>
+  </nav>
+
+  <div class="post-body">
+    <p class="post-lead">At Country Therapy, we recognise the importance of sensory play in supporting sensory processing and overall development in children. Sensory experiences can be easily integrated into daily life, and the best part is that you don't need specialised equipment or materials.</p>
+
+    <h2 id="why">Why sensory play matters</h2>
+    <p>Sensory play helps children develop critical skills, including:</p>
+    <ol>
+      <li>Sensory integration and processing</li>
+      <li>Fine motor skills and hand eye coordination</li>
+      <li>Problem solving and critical thinking</li>
+      <li>Emotional regulation and self awareness</li>
+    </ol>
+    <p>Sensory play also:</p>
+    <ul>
+      <li>Enhances creativity and imagination</li>
+      <li>Supports cognitive development and learning</li>
+      <li>Fosters independence and self confidence</li>
+      <li>Encourages social skills and communication</li>
+    </ul>
+
+    <h2 id="diy">5 DIY sensory activities using household items</h2>
+    <div class="sp-recipes">
+      <div class="sp-recipe"><h4>Sensory bins</h4><p>Fill containers with rice, beans, sand, or pasta, and hide small toys or other objects for your child to discover. You can also add different textures like fabric, foam, or water.</p></div>
+      <div class="sp-recipe"><h4>Homemade playdough</h4><p>Mix flour, water, salt, and food colouring to create a tactile experience. Add scents like essential oils or herbs for an extra sensory dimension.</p></div>
+      <div class="sp-recipe"><h4>Water play</h4><p>Fill a container with water and add soap, sponges, and cups for a fun and educational experience.</p></div>
+      <div class="sp-recipe"><h4>Sensory bottles</h4><p>Fill empty bottles with water, oil, sand, or rice, and add food colouring, glitter, or small objects for visual and tactile exploration.</p></div>
+      <div class="sp-recipe"><h4>Nature exploration</h4><p>Collect items from nature, like leaves, rocks, and sticks, and create a sensory bin or collage.</p></div>
+    </div>
+
+    <h2 id="tips">Tips and precautions</h2>
+    <div class="post-callout">
+      <p class="post-callout-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg> Before you start</p>
+      <ul>
+        <li>Supervise children during sensory play to ensure safety.</li>
+        <li>Adapt activities to suit your child's individual needs and sensitivities.</li>
+        <li>Encourage open ended exploration and imagination.</li>
+        <li>Set boundaries and clean up expectations.</li>
+        <li>Engage with your child during sensory play to foster bonding and social skills.</li>
+      </ul>
+    </div>
+
+    <h2 id="ages">Sensory play benefits for different age groups</h2>
+    <div class="sp-ages">
+      <div class="sp-age"><strong>Infants</strong><em>0 to 12 months</em><p>Sensory play helps develop foundational sensory skills, hand eye coordination, and cognitive development.</p></div>
+      <div class="sp-age"><strong>Toddlers</strong><em>1 to 3 years</em><p>Sensory play enhances exploration, fine motor skills, and language development.</p></div>
+      <div class="sp-age"><strong>Preschoolers</strong><em>3 to 5 years</em><p>Sensory play fosters creativity, problem solving, and social skills.</p></div>
+    </div>
+
+    <h2 id="start">Getting started with sensory play</h2>
+    <ol>
+      <li>Begin with simple activities and gradually increase complexity.</li>
+      <li>Observe your child's interests and preferences.</li>
+      <li>Incorporate sensory play into daily routines (e.g. bath time, outdoor play).</li>
+      <li>Make sensory play a family activity to encourage bonding.</li>
+    </ol>
+    <p>By incorporating sensory play into your daily routine, you can support your child's development and foster a lifelong love of learning. At Country Therapy, our occupational therapists are dedicated to helping children reach their full potential.</p>
+
+    <div class="post-cta">
+      <h3>Get started today</h3>
+      <p>Gather household items, get creative, and watch your child's imagination and development thrive.</p>
+      <a href="../../contact/" class="post-btn">Talk to our team <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+
+    <p class="post-disclaimer">All information is general and is not intended to be a substitute for professional medical advice.</p>
+
+    <details class="post-refs">
+      <summary>References and further reading</summary>
+      <ol>
+        <li>American Occupational Therapy Association (AOTA), Sensory Processing and Integration, <a href="https://www.aota.org/community/special-interest-sections/sensory-integration-and-processing" target="_blank" rel="noopener">aota.org</a></li>
+        <li>PBS Parents, Sensory Play: Exploring Nature, <a href="https://www.pbs.org/parents/five-senses" target="_blank" rel="noopener">pbs.org</a></li>
+        <li>Child Mind Institute, Sensory Processing Issues, <a href="https://childmind.org/article/sensory-processing-issues-explained/" target="_blank" rel="noopener">childmind.org</a></li>
+        <li>Brightwheel Blogs, Sensory Play: A Guide for Parents, <a href="https://mybrightwheel.com/blog/everything-to-know-about-sensory-play-the-ultimate-guide" target="_blank" rel="noopener">mybrightwheel.com</a></li>
+        <li>The Sensory Connection</li>
+        <li>Occupational Therapy for Children</li>
+        <li>Verywell Family, "DIY Sensory Bottles for Kids"</li>
+      </ol>
+    </details>
+  </div>
+</div>
+</article>
+
+<section class="post-next">
+  <div class="container post-next-grid">
+    <a href="../sensory-processing/" class="post-next-card"><span class="post-next-lbl">Read next</span><h4>Sensory processing: what is it?</h4></a>
+    <a href="../" class="post-next-card"><span class="post-next-lbl">Browse</span><h4>All articles and resources</h4></a>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<script src="../../assets/js/components.js"></script>
+<script src="../../assets/js/post.js"></script>
+</body>
+</html>

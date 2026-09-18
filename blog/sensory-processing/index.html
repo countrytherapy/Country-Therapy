@@ -201,26 +201,6 @@
 
 <div id="footer-root"></div>
 <script src="../../assets/js/components.js"></script>
-<script>
-  const bar = document.getElementById('progress');
-  const onScroll = () => {
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-  const links = [...document.querySelectorAll('.post-toc a')];
-  const heads = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-  if ('IntersectionObserver' in window && heads.length) {
-    const io = new IntersectionObserver(es => {
-      es.forEach(e => { if (e.isIntersecting) {
-        links.forEach(l => l.classList.remove('active'));
-        const m = links.find(l => l.getAttribute('href') === '#' + e.target.id);
-        if (m) m.classList.add('active');
-      }});
-    }, { rootMargin: '-90px 0px -70% 0px' });
-    heads.forEach(h => io.observe(h));
-  }
-</script>
+<script src="../../assets/js/post.js"></script>
 </body>
 </html>
