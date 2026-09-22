@@ -603,3 +603,92 @@
   .post-hero-photo { max-width: none; }
   .post-hero-photo img { aspect-ratio: 16 / 11; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   ASSISTIVE TECHNOLOGY  ·  post-specific components
+   ════════════════════════════════════════════════════════════ */
+
+/* cost / risk tier matrix */
+.at-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; margin: 2rem 0 1rem; }
+.at-tier {
+  border: 1px solid rgba(107,143,113,0.2);
+  border-radius: var(--r-md);
+  padding: 1.35rem 1.3rem;
+  background: var(--white);
+}
+.at-tier-lbl {
+  display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 4px; margin-bottom: 0.7rem;
+}
+.at-tier h4 { font-size: 1.02rem; font-weight: 600; color: var(--slate); margin: 0 0 0.5rem; }
+.at-tier ul { margin: 0 !important; }
+.at-tier li { font-size: 0.83rem !important; line-height: 1.55 !important; padding-left: 1.1rem !important; margin-bottom: 0.4rem !important; }
+.at-tier li::before { width: 4px !important; height: 4px !important; top: 0.66em !important; }
+
+/* one AT item */
+.at-items { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.9rem; margin: 1.5rem 0 2.5rem; }
+.at-item {
+  background: var(--white);
+  border: 1px solid rgba(107,143,113,0.18);
+  border-radius: var(--r-md);
+  padding: 1.3rem 1.35rem;
+  display: flex; flex-direction: column;
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+.at-item:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.at-item h4 { font-size: 0.98rem; font-weight: 600; color: var(--slate); margin: 0 0 0.45rem; }
+.at-item p { font-size: 0.86rem !important; line-height: 1.6 !important; margin: 0 0 0.6rem !important; }
+.at-item p:last-of-type { margin-bottom: 0.9rem !important; }
+.at-item .at-detail { color: var(--text-muted) !important; }
+.at-item .at-detail b { color: var(--slate); font-weight: 600; }
+.at-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto; }
+.at-chip {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 0.22rem 0.55rem; border-radius: 4px; white-space: nowrap;
+}
+.at-chip--low  { background: rgba(107,143,113,0.15); color: #3D5C42; }
+.at-chip--mid  { background: rgba(224,176,42,0.2);  color: #8A6B00; }
+.at-chip--high { background: rgba(232,93,122,0.15); color: #B8284D; }
+.at-chip--assess { background: var(--off-white); color: var(--text-muted); border: 1px solid rgba(107,143,113,0.18); }
+
+/* rural panel: the part that is actually about us */
+.at-rural {
+  background: var(--slate);
+  border-radius: var(--r-md);
+  padding: 2.1rem 2.2rem;
+  margin: 2.25rem 0 2.5rem;
+}
+.at-rural h3 {
+  font-family: var(--font-display); font-weight: 400; font-size: 1.45rem;
+  color: #fff; margin: 0 0 0.9rem;
+}
+.at-rural p { color: rgba(255,255,255,0.84) !important; }
+.at-rural ul { margin-bottom: 0 !important; }
+.at-rural li { color: rgba(255,255,255,0.84) !important; font-size: 0.92rem !important; }
+.at-rural li::before { background: var(--sage-light) !important; }
+.at-rural .at-rural-note {
+  margin-top: 1.4rem !important; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.14);
+  font-size: 0.85rem !important; color: rgba(255,255,255,0.66) !important;
+}
+
+/* who does what */
+.at-roles { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; margin: 2rem 0 2.4rem; }
+.at-role { background: var(--pa-pale); border-radius: var(--r-md); padding: 1.5rem 1.55rem; }
+.at-role h4 { font-size: 1rem; font-weight: 600; color: var(--pa-ink); margin: 0 0 0.7rem; }
+.at-role ul { margin: 0 !important; }
+.at-role li { font-size: 0.87rem !important; margin-bottom: 0.5rem !important; }
+
+/* credit line */
+.at-credit {
+  display: flex; align-items: flex-start; gap: 0.9rem;
+  background: var(--off-white); border-left: 3px solid var(--pa);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  padding: 1.15rem 1.3rem; margin: 2.25rem 0 0;
+}
+.at-credit svg { width: 18px; height: 18px; stroke: var(--pa); flex: none; margin-top: 0.15rem; }
+.at-credit p { font-size: 0.86rem !important; line-height: 1.6 !important; margin: 0 !important; }
+
+@media (max-width: 720px) {
+  .at-tiers, .at-items, .at-roles { grid-template-columns: 1fr; }
+  .at-rural { padding: 1.5rem 1.4rem; }
+}
