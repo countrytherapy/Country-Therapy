@@ -214,7 +214,7 @@
   (function mountEcFloat() {
     // pointless on the page it links to, and the user can dismiss it for the session
     if (/\/early-childhood\//.test(location.pathname)) return;
-    try { if (sessionStorage.getItem('ecFloatDismissed') === '1') return; } catch (e) {}
+    // closing it is for this page view only: a refresh brings it back
 
     document.body.insertAdjacentHTML('beforeend', EC_FLOAT);
     const wrap  = document.getElementById('ecFloat');
@@ -232,7 +232,6 @@
       e.stopPropagation();
       setOpen(false);
       wrap.hidden = true;
-      try { sessionStorage.setItem('ecFloatDismissed', '1'); } catch (err) {}
     });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
     document.addEventListener('click', (e) => { if (!wrap.contains(e.target)) setOpen(false); });

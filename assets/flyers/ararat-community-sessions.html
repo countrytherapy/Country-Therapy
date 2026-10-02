@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Country Therapy and Ararat Neighbourhood House, free community sessions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sage:#6B8F71; --sage-dark:#3D5C42; --sage-pale:#EAF2EB;
+    --warm:#C97B4B; --warm-pale:#FDF1E8; --slate:#2C3E35;
+    --ink:#3D4F45; --muted:#7A9183; --off:#F8F5F0;
+    --serif:'DM Serif Display', Georgia, serif;
+    --sans:'DM Sans', system-ui, sans-serif;
+  }
+  html, body { width: 210mm; height: 297mm; }
+  body { font-family: var(--sans); color: var(--ink); background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* ── masthead ── */
+  .mast {
+    background: var(--slate); color: #fff;
+    padding: 9mm 14mm; display: flex; align-items: center; justify-content: space-between;
+  }
+  .mast-brand { display: flex; align-items: center; gap: 4mm; }
+  .mast-dots { display: flex; gap: 1.4mm; align-items: flex-end; }
+  .mast-dots i { display: block; width: 2.4mm; border-radius: 1.2mm; }
+  .mast-name { font-family: var(--serif); font-size: 15pt; letter-spacing: 0.2pt; line-height: 1; }
+  .mast-sub { font-size: 6.4pt; letter-spacing: 1.4pt; text-transform: uppercase; color: rgba(255,255,255,0.62); margin-top: 1.2mm; }
+  .mast-with { font-size: 7.4pt; font-weight: 700; letter-spacing: 1.5pt; text-transform: uppercase; color: rgba(255,255,255,0.8); text-align: right; }
+
+  /* ── hero ── */
+  .hero { position: relative; height: 86mm; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; }
+  .hero-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(44,62,53,0.05) 0%, rgba(44,62,53,0.22) 32%, rgba(44,62,53,0.74) 62%, rgba(44,62,53,0.95) 100%);
+  }
+  .hero-copy { position: absolute; left: 14mm; right: 14mm; bottom: 9mm; }
+  .hero-badge {
+    display: inline-block; background: var(--warm); color: #fff;
+    font-size: 7.6pt; font-weight: 700; letter-spacing: 1.3pt; text-transform: uppercase;
+    padding: 2mm 5mm; border-radius: 20mm; margin-bottom: 4mm;
+  }
+  .hero-h1 { font-family: var(--serif); color: #fff; font-size: 30pt; line-height: 1.12; }
+  .hero-h1 em { font-style: italic; color: #F2D5BB; }
+
+  /* ── body ── */
+  .body { padding: 10mm 14mm 0; }
+  .lede-h { font-family: var(--serif); font-size: 17pt; color: var(--slate); margin-bottom: 3mm; }
+  .lede-p { font-size: 10.2pt; font-weight: 300; line-height: 1.62; color: var(--ink); max-width: 160mm; }
+
+  .topics {
+    margin-top: 8mm; background: var(--sage-pale);
+    border: 0.4mm solid rgba(107,143,113,0.28); border-radius: 4mm; padding: 7mm 8mm;
+  }
+  .topics-h { font-size: 11pt; font-weight: 700; color: var(--slate); margin-bottom: 5mm; }
+  .topics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 8mm; }
+  .topic { display: flex; align-items: flex-start; gap: 3mm; font-size: 9.8pt; font-weight: 500; color: var(--slate); }
+  .topic i {
+    flex: none; width: 2.6mm; height: 2.6mm; border-radius: 50%;
+    background: var(--sage-dark); margin-top: 1.5mm;
+  }
+
+  .forwho {
+    margin-top: 7mm; font-size: 10pt; font-weight: 600; line-height: 1.6; color: var(--slate);
+    border-left: 1mm solid var(--warm); padding-left: 5mm;
+  }
+
+  /* ── details band ── */
+  .band {
+    position: absolute; left: 14mm; right: 14mm; bottom: 13mm;
+    background: var(--slate); border-radius: 4mm; color: #fff;
+    padding: 7mm 8mm; display: flex; align-items: center; justify-content: space-between; gap: 6mm;
+  }
+  .band-where { font-size: 7.6pt; font-weight: 700; letter-spacing: 1.4pt; text-transform: uppercase; color: rgba(255,255,255,0.62); }
+  .band-what { font-family: var(--serif); font-size: 16pt; margin: 1.5mm 0 2.5mm; }
+  .band-meta { font-size: 8.6pt; font-weight: 300; color: rgba(255,255,255,0.78); }
+  .band-meta b { font-weight: 600; color: #fff; }
+  .band-free {
+    flex: none; width: 30mm; height: 30mm; border-radius: 50%;
+    background: var(--warm); color: #fff; display: grid; place-items: center;
+    font-family: var(--serif); font-size: 17pt; letter-spacing: 0.5pt;
+  }
+  .foot {
+    position: absolute; left: 14mm; right: 14mm; bottom: 5mm;
+    display: flex; justify-content: space-between;
+    font-size: 7.4pt; font-weight: 300; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+  <header class="mast">
+    <div class="mast-brand">
+      <span class="mast-dots">
+        <i style="background:#4A90C4;height:6mm"></i>
+        <i style="background:#F5C842;height:8.5mm"></i>
+        <i style="background:#E85D7A;height:8.5mm"></i>
+        <i style="background:#6B8F71;height:5mm"></i>
+      </span>
+      <span>
+        <div class="mast-name">Country Therapy</div>
+        <div class="mast-sub">Mobile Occupational Therapy</div>
+      </span>
+    </div>
+    <div class="mast-with">With Ararat<br>Neighbourhood House</div>
+  </header>
+
+  <div class="hero">
+    <img src="http://localhost:5505/assets/images/early-childhood/ararat-neighbourhood-house.jpg" alt="" />
+    <div class="hero-scrim"></div>
+    <div class="hero-copy">
+      <span class="hero-badge">Free community program</span>
+      <div class="hero-h1">Growing understanding,<br><em>close to home.</em></div>
+    </div>
+  </div>
+
+  <div class="body">
+    <h2 class="lede-h">Free education and consultation, every two months</h2>
+    <p class="lede-p">Country Therapy and Ararat Neighbourhood House are partnering to bring practical, trusted information to local families and community members, right here in Ararat. Sessions are delivered by our occupational therapy and management team, with time set aside for questions.</p>
+
+    <div class="topics">
+      <div class="topics-h">Come along to learn and ask questions about:</div>
+      <div class="topics-grid">
+        <div class="topic"><i></i>Autism</div>
+        <div class="topic"><i></i>ADHD</div>
+        <div class="topic"><i></i>Intellectual disability</div>
+        <div class="topic"><i></i>Developmental delay</div>
+        <div class="topic"><i></i>Sensory and emotional regulation</div>
+        <div class="topic"><i></i>School and everyday participation</div>
+      </div>
+    </div>
+
+    <p class="forwho">For parents, carers, grandparents, educators, farming families and anyone in the community who wants to understand more.</p>
+  </div>
+
+  <div class="band">
+    <div>
+      <div class="band-where">Ararat Neighbourhood House</div>
+      <div class="band-what">Free &middot; Every two months &middot; Ararat VIC</div>
+      <div class="band-meta"><b>Next session:</b> announced soon &nbsp;|&nbsp; countrytherapy.com.au &nbsp;|&nbsp; 0494 758 039</div>
+    </div>
+    <div class="band-free">FREE</div>
+  </div>
+
+  <div class="foot">
+    <span>Country Therapy, mobile occupational therapy across regional and metro Victoria.</span>
+    <span>reception@countrytherapy.com.au</span>
+  </div>
+
+</body>
+</html>

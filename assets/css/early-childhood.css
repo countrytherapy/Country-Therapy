@@ -4,10 +4,39 @@
 
 /* ── hero ─────────────────────────────────────────────────── */
 .ec-hero {
-  background: var(--slate);
-  padding: 4.5rem 0 4rem;
+  background: linear-gradient(145deg, #223128 0%, var(--slate) 55%, #35503f 100%);
+  /* clear the fixed topbar and nav, as the other page heroes do */
+  padding-top: calc(var(--topbar-h) + var(--nav-h) + 4rem);
+  padding-bottom: 4.5rem;
   position: relative;
   overflow: hidden;
+}
+.ec-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(201,123,75,0.18), transparent 42%),
+    radial-gradient(circle at 82% 78%, rgba(107,143,113,0.22), transparent 46%);
+  pointer-events: none;
+}
+.ec-hero > .container { position: relative; }
+
+/* partner lockup */
+.ec-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+}
+.ec-lockup-x {
+  width: 22px; height: 1px;
+  background: rgba(255,255,255,0.3);
+  flex: none;
 }
 .ec-hero-inner {
   display: grid;
@@ -72,16 +101,26 @@
   background: var(--white);
   border: 1px solid rgba(107,143,113,0.14);
   border-radius: var(--r-md);
-  padding: 1.3rem 1.35rem;
+  padding: 1.4rem 1.4rem 1.45rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+.ec-fact:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.ec-fact-ico {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--fbg, rgba(201,123,75,0.12));
+  display: grid; place-items: center;
+  margin-bottom: 0.9rem;
+}
+.ec-fact-ico svg { width: 18px; height: 18px; stroke: var(--fc, var(--warm)); }
 .ec-fact-n {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--warm);
-  margin-bottom: 0.4rem;
+  color: var(--fc, var(--warm));
+  margin-bottom: 0.35rem;
 }
 .ec-fact-l { font-size: 0.88rem; font-weight: 300; line-height: 1.5; color: var(--text-muted); }
 
@@ -94,11 +133,25 @@
   margin-top: 2.75rem;
 }
 .ec-prog {
+  position: relative;
+  overflow: hidden;
   border-radius: var(--r-md);
   padding: 2.1rem 2.2rem;
   display: flex;
   flex-direction: column;
 }
+.ec-prog::after {
+  content: attr(data-n);
+  position: absolute;
+  right: 1.1rem; top: 0.2rem;
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  line-height: 1;
+  pointer-events: none;
+}
+.ec-prog--warm::after { color: rgba(201,123,75,0.11); }
+.ec-prog--sage::after { color: rgba(107,143,113,0.13); }
+.ec-prog > * { position: relative; }
 .ec-prog--warm { background: var(--warm-pale); border: 1px solid rgba(201,123,75,0.2); }
 .ec-prog--sage { background: var(--sage-pale); border: 1px solid rgba(107,143,113,0.22); }
 .ec-prog-tag {
@@ -171,20 +224,31 @@
 .ec-prog-link svg { width: 14px; height: 14px; }
 
 /* ── who this is for ──────────────────────────────────────── */
-.ec-who { background: var(--slate); padding: 4.5rem 0; }
+.ec-who {
+  background: var(--slate);
+  padding: 4.75rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.ec-who::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 50% 0%, rgba(107,143,113,0.22), transparent 58%);
+  pointer-events: none;
+}
+.ec-who > .container { position: relative; }
 .ec-who h2 { color: var(--white); text-align: center; margin-bottom: 2.75rem; }
 .ec-who-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1.5rem; }
 .ec-who-item { display: flex; gap: 0.95rem; align-items: flex-start; }
 .ec-who-n {
   flex: none;
-  width: 2rem; height: 2rem;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.28);
+  width: 2.6rem; height: 2.6rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
   display: grid; place-items: center;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--warm-light);
 }
+.ec-who-n svg { width: 19px; height: 19px; stroke: var(--warm-light); }
 .ec-who-item h4 { font-size: 0.96rem; font-weight: 600; color: var(--white); margin: 0.2rem 0 0.35rem; }
 .ec-who-item p { font-size: 0.85rem; font-weight: 300; line-height: 1.6; color: rgba(255,255,255,0.68); margin: 0; }
 
@@ -198,14 +262,26 @@
 }
 .ec-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.75rem 0 1.75rem; }
 .ec-chip {
-  font-size: 0.86rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.87rem;
   font-weight: 500;
   color: var(--sage-dark);
   background: var(--sage-pale);
-  border: 1px solid rgba(107,143,113,0.2);
-  padding: 0.55rem 1rem;
+  border: 1px solid rgba(107,143,113,0.22);
+  padding: 0.55rem 1.05rem;
   border-radius: 50px;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
+.ec-chip::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+  flex: none;
+}
+.ec-chip:hover { transform: translateY(-2px); background: var(--white); }
 .ec-region-note {
   font-size: 0.82rem;
   font-weight: 300;
@@ -216,8 +292,17 @@
 }
 
 /* ── regional message ─────────────────────────────────────── */
-.ec-regional { padding: 5rem 0; background: var(--white); }
-.ec-regional-inner { max-width: 760px; margin-inline: auto; text-align: center; }
+.ec-regional { padding: 5.5rem 0; background: var(--white); position: relative; overflow: hidden; }
+.ec-regional-inner { max-width: 780px; margin-inline: auto; text-align: center; position: relative; }
+.ec-regional-mark {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--warm-pale);
+  border: 1px solid rgba(201,123,75,0.25);
+  display: grid; place-items: center;
+  margin: 0 auto 1.4rem;
+}
+.ec-regional-mark svg { width: 21px; height: 21px; stroke: var(--warm); }
 .ec-regional p {
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2.5vw, 1.65rem);
@@ -318,3 +403,29 @@
 @media (max-width: 600px) {
   .cta-acts        { flex-direction: column; }
 }
+
+/* the Ararat card carries two actions: ask, or take the flyer away */
+.ec-prog-actions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.2rem;
+}
+.ec-prog-actions .ec-prog-link { margin-top: 0; }
+.ec-prog-dl {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--sage-dark);
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(107,143,113,0.28);
+  padding: 0.5rem 0.95rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.ec-prog-dl svg { width: 13px; height: 13px; }
+.ec-prog-dl:hover { background: var(--white); transform: translateY(-2px); }
