@@ -46,6 +46,7 @@
 
     <ul class="nav-links" role="list">
       <li><a href="${rel}services/">Services</a></li>
+      <li><a href="${rel}early-childhood/">Early Childhood</a></li>
       <li><a href="${rel}locations/">Locations</a></li>
       <li><a href="${rel}referrals/">Referrals</a></li>
       <li><a href="${rel}information-booklets/">Information Booklets</a></li>
@@ -81,6 +82,7 @@
   <div class="nav-mobile" id="navMobileMenu" aria-hidden="true">
     <ul class="nav-mobile-links">
       <li><a href="${rel}services/">Services</a></li>
+      <li><a href="${rel}early-childhood/">Early Childhood</a></li>
       <li><a href="${rel}locations/">Locations</a></li>
       <li><a href="${rel}referrals/">Referrals</a></li>
       <li><a href="${rel}information-booklets/">Information Booklets</a></li>
@@ -142,6 +144,7 @@
         <h5>Company</h5>
         <ul class="ft-links">
           <li><a href="${rel}our-team/">Our Team</a></li>
+          <li><a href="${rel}early-childhood/">Early Childhood</a></li>
           <li><a href="${rel}referrals/">Referrals</a></li>
           <li><a href="${rel}information-booklets/">Information Booklets</a></li>
           <li><a href="${rel}news/">News</a></li>
@@ -161,7 +164,7 @@
       </div>
     </div>
     <div class="ft-bot">
-      <p>&copy; 2026 Country Therapy Pty Ltd. All rights reserved.</p>
+      <p>&copy; 2026 Country Therapy Pty Ltd. All rights reserved.<span class="ft-credit">Website developed by Anisha Imran</span></p>
       <div class="ft-colour-strip" aria-hidden="true">
         <span class="ft-colour-dot" style="background:#4A90C4"></span>
         <span class="ft-colour-dot" style="background:#F5C842"></span>
@@ -176,6 +179,64 @@
   document.addEventListener("DOMContentLoaded", function() {
     var navRoot  = document.getElementById("nav-root");
     var footRoot = document.getElementById("footer-root");
+
+
+  /* ── floating early childhood preview ──────────────────────
+     Site wide, except on the page it points at.              */
+  const EC_FLOAT = `
+<div class="ecf" id="ecFloat" hidden>
+  <div class="ecf-panel" id="ecPanel" role="dialog" aria-label="Early childhood and community support" aria-modal="false">
+    <button class="ecf-close" id="ecClose" type="button" aria-label="Close preview">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <img class="ecf-img" src="${rel}assets/images/early-childhood/ararat-neighbourhood-house.jpg" alt="" loading="lazy" />
+    <div class="ecf-body">
+      <span class="ecf-tag">New &middot; Free</span>
+      <h3>Early childhood &amp; community</h3>
+      <p>Free education and consultation for families, educators and communities across regional Victoria.</p>
+      <ul class="ecf-list">
+        <li>Free sessions at Ararat Neighbourhood House</li>
+        <li>EmpowerEd online learning for educators</li>
+      </ul>
+      <a class="ecf-go" href="${rel}early-childhood/">
+        Explore the programs
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+  </div>
+  <button class="ecf-btn" id="ecBtn" type="button" aria-expanded="false" aria-controls="ecPanel">
+    <span class="ecf-dot" aria-hidden="true"></span>
+    <span class="ecf-label">Early Childhood &amp; Community</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+</div>`;
+
+  (function mountEcFloat() {
+    // pointless on the page it links to, and the user can dismiss it for the session
+    if (/\/early-childhood\//.test(location.pathname)) return;
+    try { if (sessionStorage.getItem('ecFloatDismissed') === '1') return; } catch (e) {}
+
+    document.body.insertAdjacentHTML('beforeend', EC_FLOAT);
+    const wrap  = document.getElementById('ecFloat');
+    const btn   = document.getElementById('ecBtn');
+    const close = document.getElementById('ecClose');
+    if (!wrap || !btn) return;
+    wrap.hidden = false;
+
+    const setOpen = (open) => {
+      wrap.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    };
+    btn.addEventListener('click', () => setOpen(!wrap.classList.contains('open')));
+    close.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setOpen(false);
+      wrap.hidden = true;
+      try { sessionStorage.setItem('ecFloatDismissed', '1'); } catch (err) {}
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+    document.addEventListener('click', (e) => { if (!wrap.contains(e.target)) setOpen(false); });
+  })();
 
     if (navRoot)  navRoot.innerHTML  = NAVBAR;
     if (footRoot) footRoot.innerHTML = FOOTER;

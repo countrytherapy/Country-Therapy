@@ -484,3 +484,121 @@ footer {
   .tb-contact a:last-child { display: none; } /* hide email on tiny screens */
   .ft-g { grid-template-columns: 1fr; }
 }
+/* quiet build credit, a half step below the copyright line */
+.ft-credit {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.34);
+}
+@media (min-width: 720px) {
+  .ft-credit { display: inline; margin-top: 0; margin-left: 0.9rem; }
+  .ft-credit::before { content: '·'; margin-right: 0.9rem; opacity: 0.5; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   FLOATING EARLY CHILDHOOD PREVIEW
+   ════════════════════════════════════════════════════════════ */
+.ecf { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 180; }
+.ecf[hidden] { display: none !important; }
+
+.ecf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--warm);
+  color: var(--white);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.8rem 1.25rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 26px rgba(44,62,53,0.26);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.ecf-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(44,62,53,0.32); }
+.ecf-btn:focus-visible { outline: 3px solid var(--sage-light); outline-offset: 3px; }
+.ecf-btn svg { width: 16px; height: 16px; flex: none; }
+.ecf-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--white); flex: none;
+  animation: ecf-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ecf-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) {
+  .ecf-dot { animation: none; }
+  .ecf-btn, .ecf-panel { transition: none; }
+}
+
+.ecf-panel {
+  position: absolute;
+  right: 0; bottom: calc(100% + 0.75rem);
+  width: min(330px, calc(100vw - 2.5rem));
+  background: var(--white);
+  border-radius: var(--r-md);
+  box-shadow: 0 20px 56px rgba(44,62,53,0.26);
+  overflow: hidden;
+  transform-origin: bottom right;
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.ecf.open .ecf-panel { opacity: 1; transform: none; pointer-events: auto; }
+
+.ecf-img { display: block; width: 100%; height: 132px; object-fit: cover; }
+.ecf-body { padding: 1.15rem 1.25rem 1.3rem; }
+.ecf-tag {
+  display: inline-block;
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #9C5526; background: rgba(201,123,75,0.14);
+  padding: 0.22rem 0.6rem; border-radius: 50px; margin-bottom: 0.6rem;
+}
+.ecf-body h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.15rem; line-height: 1.25; color: var(--slate); margin: 0 0 0.5rem;
+}
+.ecf-body p {
+  font-size: 0.84rem; font-weight: 300; line-height: 1.6;
+  color: var(--text-muted); margin: 0 0 0.9rem;
+}
+.ecf-list { list-style: none; margin: 0 0 1.1rem; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+.ecf-list li {
+  position: relative; padding-left: 1.1rem;
+  font-size: 0.82rem; font-weight: 400; color: var(--text-body); line-height: 1.45;
+}
+.ecf-list li::before {
+  content: ''; position: absolute; left: 0; top: 0.5em;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--sage);
+}
+.ecf-go {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--sage-dark); color: var(--white);
+  font-size: 0.83rem; font-weight: 600;
+  padding: 0.62rem 1.15rem; border-radius: 50px; text-decoration: none;
+  transition: gap 0.2s ease;
+}
+.ecf-go:hover { gap: 0.7rem; }
+.ecf-go svg { width: 13px; height: 13px; }
+
+.ecf-close {
+  position: absolute; top: 0.6rem; right: 0.6rem;
+  width: 28px; height: 28px; border-radius: 50%;
+  border: none; cursor: pointer;
+  background: rgba(255,255,255,0.92);
+  color: var(--slate);
+  display: grid; place-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+}
+.ecf-close svg { width: 12px; height: 12px; }
+.ecf-close:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+
+@media (max-width: 520px) {
+  .ecf { right: 0.85rem; bottom: 0.85rem; }
+  .ecf-btn span.ecf-label { display: none; }
+  .ecf-btn { padding: 0.85rem; border-radius: 50%; }
+}
