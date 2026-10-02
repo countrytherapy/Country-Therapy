@@ -6,7 +6,7 @@
 .ec-hero {
   background: linear-gradient(145deg, #223128 0%, var(--slate) 55%, #35503f 100%);
   /* clear the fixed topbar and nav, as the other page heroes do */
-  padding-top: calc(var(--topbar-h) + var(--nav-h) + 4rem);
+  padding-top: calc(var(--topbar-h) + var(--nav-h) + 5.5rem);
   padding-bottom: 4.5rem;
   position: relative;
   overflow: hidden;
